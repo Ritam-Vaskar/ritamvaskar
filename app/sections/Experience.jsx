@@ -6,9 +6,9 @@ import ExperienceCard from "../components/ExperienceCard";
 const Experience = () => {
   const experiences = [
     {
-      company: "TechCorp Global",
-      title: "Senior Software Engineer",
-      logo: "/api/placeholder/200/200",
+      company: "FED KIIT",
+      title: "Senior Technichal Executive",
+      logo: "/assets/fed_logo.png",
       companyBanner: "/api/placeholder/1200/400",
       symbol: "🚀",
       location: "San Francisco, CA",

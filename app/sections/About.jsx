@@ -3,9 +3,9 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Particles from "react-particles";
-import { Engine } from "tsparticles-engine";
-import { loadSlim } from "tsparticles-slim";
+import { Particles } from "@tsparticles/react";
+import { Engine } from "@tsparticles/engine";
+import { loadSlim } from "@tsparticles/slim"; 
 import SocialLinks from "../components/SocialLinks";
 
 const ParticlesBackground = () => {

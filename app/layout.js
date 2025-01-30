@@ -3,6 +3,7 @@ import "./globals.css";
 
 import Navbar from "./layouts/Navbar";
 import Footer from "./layouts/Footer";
+import ParticlesBackground from "./components/ParticlesBackground";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Ritam Vaskar's Portfolio", 
+  title: "Ritam Vaskar's Portfolio",
   description: "Created by Ritam Vaskar",
 };
 
@@ -23,12 +24,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen `}
       >
-        
-        <Navbar />
-        {children}
-        <Footer/>
+        <ParticlesBackground/>
+        <div className="relative z-10">
+          <Navbar />
+          {children}
+          <Footer />
+        </div>
       </body>
     </html>
   );
