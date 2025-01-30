@@ -3,94 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Particles } from "@tsparticles/react";
-import { Engine } from "@tsparticles/engine";
-import { loadSlim } from "@tsparticles/slim"; 
 import SocialLinks from "../components/SocialLinks";
-
-const ParticlesBackground = () => {
-  const particlesInit = async (engine) => {
-    await loadSlim(engine);
-  };
-
-  const particlesConfig = {
-    background: {
-      color: {
-        value: "transparent",
-      },
-    },
-    particles: {
-      number: {
-        value: 50,
-        density: {
-          enable: true,
-          value_area: 800,
-        },
-      },
-      color: {
-        value: "#a855f7",
-      },
-      shape: {
-        type: "circle",
-      },
-      opacity: {
-        value: 0.5,
-        random: true,
-      },
-      size: {
-        value: 3,
-        random: true,
-      },
-      links: {
-        enable: true,
-        distance: 150,
-        color: "#a855f7",
-        opacity: 0.2,
-        width: 1,
-      },
-      move: {
-        enable: true,
-        speed: 2,
-        direction: "none",
-        random: false,
-        straight: false,
-        outModes: {
-          default: "out",
-        },
-        attract: {
-          enable: false,
-          rotateX: 600,
-          rotateY: 1200,
-        },
-      },
-    },
-    interactivity: {
-      events: {
-        onHover: {
-          enable: true,
-          mode: "repulse",
-        },
-        resize: true,
-      },
-      modes: {
-        repulse: {
-          distance: 100,
-          duration: 0.4,
-        },
-      },
-    },
-    detectRetina: true,
-  };
-
-  return (
-    <Particles
-      id="tsparticles"
-      init={particlesInit}
-      options={particlesConfig}
-      className="absolute inset-0 -z-10"
-    />
-  );
-};
 
 const slideInFromLeft = (delay) => ({
   hidden: { x: -100, opacity: 0 },
@@ -113,7 +26,7 @@ const slideInFromRight = (delay) => ({
 const AboutMe = () => {
   return (
     <div className="relative min-h-screen w-full">
-      <ParticlesBackground />
+      
       <section className="w-full flex flex-col lg:flex-row items-center justify-between px-6 lg:px-20 mt-16 z-20 relative">
         {/* Left Section */}
         <motion.div

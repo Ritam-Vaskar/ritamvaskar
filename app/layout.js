@@ -26,7 +26,14 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen `}
       >
-        <ParticlesBackground/>
+        <ParticlesBackground
+          
+          particleCount={70}
+          maxDistance={120}
+          backgroundColor="#0000" // Even lighter purple background
+          particleColor="#a855f7" // Different shade of purple
+        
+        />
         <div className="relative z-10">
           <Navbar />
           {children}
