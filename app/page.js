@@ -10,18 +10,16 @@ import Experience from "./sections/Experience";
 
 export default function Home() {
   return (
-    <main className='h-full w-full'>
-      <div className='flex flex-col gap-20 h-fit'>
-        <Hero />
-        <AboutMe />
-        <Education/>
-        <Experience/>
-        <Skills/>
-        <ProjectsPage/>
-        <Contact/>
-
+    <main className="h-full w-full">
+      <div className="flex flex-col gap-20 h-fit">
+        <section id="home"><Hero /></section>
+        <section id="about"><AboutMe /></section>
+        <section id="education"><Education /></section>
+        <section id="experience"><Experience /></section>
+        <section id="skills"><Skills /></section>
+        <section id="project"><ProjectsPage /></section>
+        <section id="contact"><Contact /></section>
       </div>
-      
     </main>
   );
 }

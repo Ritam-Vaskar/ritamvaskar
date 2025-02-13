@@ -15,38 +15,38 @@ const SocialLinks = () => {
     {
       name: "GitHub",
       icon: Github,
-      url: "https://github.com/yourusername",
+      url: "https://github.com/Ritam-Vaskar",
       color: "#333",
       hoverColor: "#2b3137"
     },
     {
       name: "LinkedIn",
       icon: Linkedin,
-      url: "https://linkedin.com/in/yourusername",
+      url: "https://www.linkedin.com/in/ritam-vaskar-50627527a?fbclid=IwAR1bpBOdCyM2QHdjg2BVPG0GhheUA1E9WBW1Sy7CMyDZDxoFxHBHNCN7ONY",
       color: "#0077B5",
       hoverColor: "#00669c"
     },
     {
       name: "Facebook",
       icon: Facebook,
-      url: "https://facebook.com/yourusername",
+      url: "https://www.facebook.com/profile.php?id=100042004065718",
       color: "#1877F2",
       hoverColor: "#1664d9"
     },
     {
       name: "Instagram",
       icon: Instagram,
-      url: "https://instagram.com/yourusername",
+      url: "https://www.instagram.com/ritamvaskar2005/?fbclid=IwAR0okEvLc_S3HqrlIDtaoz6iPxHwb0wXn4JwnFYdyAsdbYr-fe0gLW3Gccg",
       color: "#E4405F",
       hoverColor: "#d62f4c"
-    },
-    {
-      name: "Twitter",
-      icon: Twitter,
-      url: "https://twitter.com/yourusername",
-      color: "#1DA1F2",
-      hoverColor: "#1a8cd8"
     }
+    // {
+    //   name: "Twitter",
+    //   icon: Twitter,
+    //   url: "https://twitter.com/yourusername",
+    //   color: "#1DA1F2",
+    //   hoverColor: "#1a8cd8"
+    // }
   ];
 
   const containerVariants = {
@@ -90,7 +90,7 @@ const SocialLinks = () => {
         </motion.h2>
 
         {/* Social Links Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-6 justify-items-center">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 justify-items-center">
           {socialLinks.map((social, index) => (
             <motion.a
               key={social.name}

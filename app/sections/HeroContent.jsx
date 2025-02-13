@@ -8,7 +8,7 @@ import { slideInFromLeft, slideInFromRight, slideInFromTop } from "@/utils/motio
 
 const HeroContent = () => {
   return (
-    <div className="w-full flex flex-col items-center justify-center px-6 lg:px-20 mt-[70px] z-[20]">
+    <div className="w-full flex flex-col items-center justify-center px-6 lg:px-20 mt-[90px] z-[20]">
       <motion.div
         initial="hidden"
         animate="visible"
@@ -47,7 +47,7 @@ const HeroContent = () => {
 
           {/* Call-to-Action Button */}
           <motion.div
-            className="py-2 button-primary text-center text-white cursor-pointer rounded-lg max-w-[200px] mx-auto lg:mx-0 bg-gradient-to-r from-purple-600 to-indigo-500 hover:shadow-lg hover:scale-105 transition-transform duration-300"
+            className="py-2 px-4 button-primary text-center text-white cursor-pointer rounded-lg max-w-[200px] mx-auto lg:mx-0 bg-gradient-to-r from-purple-600 to-indigo-500 hover:shadow-lg hover:scale-105 transition-transform duration-300"
             variants={slideInFromTop(0.5)}
           >
             Learn More!

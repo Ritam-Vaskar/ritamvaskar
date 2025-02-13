@@ -7,31 +7,31 @@ import EducationCard from "../components/EducationCard";
 const Education = () => {
   const educationData = [
     {
-      institution: "Harvard University",
-      degree: "Master of Computer Science",
-      duration: "2020 - 2022",
-      location: "Cambridge, MA",
-      grade: "3.8 GPA",
-      gradePercentage: 95,
-      description: "Specialized in Artificial Intelligence and Machine Learning. Led research projects in Natural Language Processing.",
+      institution: "KIIT University",
+      degree: "B. Tech in Computer Science & Engineering",
+      duration: "2023 - 2027",
+      location: "Bhubaneswar, India",
+      grade: "8.1 GPA",
+      gradePercentage: 85,
+      description: "4 years Undergraduate Course. Bachelor of Technology in Computer Science & Engineering.",
     },
     {
-      institution: "MIT",
-      degree: "Bachelor of Computer Science",
-      duration: "2016 - 2020",
-      location: "Cambridge, MA",
-      grade: "3.9 GPA",
-      gradePercentage: 98,
-      description: "Major in Computer Science with minor in Mathematics. Active member of the Robotics Club.",
+      institution: "Raghunathganj High School",
+      degree: "Higher Secondary Education",
+      duration: "2021 - 2023",
+      location: "Raghunathganj, India",
+      grade: "84%",
+      gradePercentage: 84,
+      description: "Science Stream. Physics, Chemistry, Mathematics, and Biology.",
     },
     {
-      institution: "Stanford High School",
-      degree: "High School Diploma",
-      duration: "2012 - 2016",
-      location: "Palo Alto, CA",
-      grade: "4.0 GPA",
-      gradePercentage: 100,
-      description: "Valedictorian, President of Computer Science Club, Math Team Captain.",
+      institution: "Sri Ramakrishna Siksha Niketan",
+      degree: "Secondary Education",
+      duration: "2008 - 2021",
+      location: "Raghunathganj, India",
+      grade: "97%",
+      gradePercentage: 97,
+      description: "10 years of Schooling. English, Bengali, Mathematics, Science, Social Science.",
     },
   ];
 
@@ -58,7 +58,7 @@ const Education = () => {
   };
 
   return (
-    <section className="relative min-h-screen w-full py-12 px-4 overflow-hidden flex flex-col items-center">
+    <section className="relative min-h-screen w-full py-12 px-4 overflow-hidden flex flex-col items-center justify-center">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 -z-10">
         <motion.div
@@ -117,12 +117,12 @@ const Education = () => {
           />
 
           {/* Education Cards */}
-          <div className="ml-10 space-y-16 w-full ">
+          <div className="ml-10 space-y-16 w-[80%] ">
             {educationData.map((edu, index) => (
               <div key={index} className="relative">
               {/* Timeline Node */}
               <motion.div
-                className="absolute left-8 transform -translate-x-1/2 w-6 h-6 rounded-full bg-purple-500 z-10"
+                className="absolute left-[-18] transform -translate-x-1/2 w-6 h-6 rounded-full bg-purple-500 z-10"
                 initial={{ scale: 0 }}
                 whileInView={{ scale: 1 }}
                 transition={{ duration: 0.5, delay: index * 0.2 }}

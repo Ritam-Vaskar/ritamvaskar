@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 
 const Skills = () => {
   const skills = [
-    { name: "C/C++", image: "/assets/react.png" },
-    { name: "Java", image: "/assets/react.png" },
+    { name: "C/C++", image: "https://img.icons8.com/?size=100&id=40669&format=png&color=000000" },
+    { name: "Java", image: "https://img.icons8.com/?size=100&id=13679&format=png&color=000000" },
     { name: "React", image: "/assets/react.png" },
     { name: "Node.js", image: "/assets/node-js.png" },
     { name: "MongoDB", image: "/assets/mongodb.png" },

@@ -71,10 +71,9 @@ const Contact = () => {
           whileHover="whileHover"
         >
           <img
-            src="/assets/ritam.jpeg" 
+            src="/assets/ritam.jpeg"
             alt="Your Name"
             className="w-32 h-32 rounded-full object-cover border-4 border-purple-500"
-            
           />
           <h3 className="text-2xl font-bold text-white">Ritam Vaskar</h3>
           <p className="text-gray-400 text-sm text-center">
@@ -82,13 +81,15 @@ const Contact = () => {
           </p>
           <div className="flex flex-col gap-2 text-gray-300">
             <p>
-              📧 Email: <span className="text-purple-500">your.email@example.com</span>
+              📧 Email:{" "}
+              <span className="text-purple-500">ritamvaskar0@gmail.com</span>
             </p>
             <p>
-              📱 Phone: <span className="text-purple-500">+123-456-7890</span>
+              📱 Phone: <span className="text-purple-500">+91 9609887167</span>
             </p>
             <p>
-              🌍 Location: <span className="text-purple-500">Your City, Country</span>
+              🌍 Location:{" "}
+              <span className="text-purple-500">Raghunathganj,WB</span>
             </p>
           </div>
         </motion.div>
@@ -119,7 +120,27 @@ const Contact = () => {
             ></textarea>
           </div>
           <motion.button
-            type="submit"
+            type="button" // Prevent default form submission
+            onClick={() => {
+              const name = document.querySelector(
+                'input[placeholder="Your Name"]'
+              ).value;
+              const email = document.querySelector(
+                'input[placeholder="Your Email"]'
+              ).value;
+              const message = document.querySelector(
+                'textarea[placeholder="Your Message"]'
+              ).value;
+
+              const whatsappMessage = `Hello, my name is ${name}. My email is ${email}. Here is my message: ${message}`;
+              const encodedMessage = encodeURIComponent(whatsappMessage);
+              const phoneNumber = "919609887167"; // Use country code
+
+              window.open(
+                `https://wa.me/${phoneNumber}?text=${encodedMessage}`,
+                "_blank"
+              );
+            }}
             whileHover={{
               scale: 1.05,
               boxShadow: "0px 8px 15px rgba(128, 90, 213, 0.3)",

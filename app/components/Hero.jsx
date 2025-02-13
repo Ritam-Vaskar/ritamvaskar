@@ -30,17 +30,22 @@ const Hero = () => {
       onMouseMove={handleMouseMove}
     >
       {/* Video Background */}
-      <video
-        autoPlay
-        loop
-        muted
-        className="rotate-180 absolute top-[-220px] lg:top-[-220px] md:top-[-220px] sm:top-[-400px] xs:top-[-400px] left-0 w-full h-full object-cover z-[-2] opacity-25"
-      >
-        <source src="/assets/blackhole.webm" type="video/webm" />
-      </video>
+      {/* <video
+  autoPlay
+  loop
+  muted
+  className="rotate-180 absolute sm:top-[-500px] md:top-[-500px] lg:top-[-520px] left-0 w-full h-full object-cover z-[-2] opacity-25"
+  style={{
+    top: window.innerWidth < 450 ? "-200px" : "",
+  }}
+>
+  <source src="/assets/blackhole.webm" type="video/webm" />
+</video> */}
+
+
 
       {/* Custom Animated Background */}
-      <div className="absolute inset-0 z-0">
+      {/* <div className="absolute inset-0 z-0">
         <div className="relative w-full h-full">
           {particles.map((particle) => (
             <div
@@ -59,7 +64,7 @@ const Hero = () => {
 
           
         </div>
-      </div>
+      </div> */}
 
       {/* Hero Content */}
       <div className="relative z-10">

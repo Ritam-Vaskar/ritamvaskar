@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import { Link } from "react-scroll";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,10 +17,11 @@ const Navbar = () => {
 
         {/* Navigation Links */}
         <div className="hidden md:flex space-x-8 text-base font-medium text-white">
-          <a href="#home" className="hover:text-[#2A0E61]">Home</a>
-          <a href="#project" className="hover:text-[#2A0E61]">Project</a>
-          <a href="#education" className="hover:text-[#2A0E61]">Education</a>
-          <a href="#contact" className="hover:text-[#2A0E61]">Contact</a>
+          <Link to="home" smooth={true} duration={500} className="cursor-pointer hover:text-[#77c0ff]">Home</Link>
+          <Link to="education" smooth={true} duration={500} className="cursor-pointer hover:text-[#77c0ff]">Education</Link>
+          <Link to="skills" smooth={true} duration={500} className="cursor-pointer hover:text-[#77c0ff]">Skills</Link>
+          <Link to="project" smooth={true} duration={500} className="cursor-pointer hover:text-[#77c0ff]">Project</Link>
+          <Link to="contact" smooth={true} duration={500} className="cursor-pointer hover:text-[#77c0ff]">Contact</Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -50,10 +52,11 @@ const Navbar = () => {
       {/* Dropdown for Mobile Menu */}
       {isMenuOpen && (
         <div className="md:hidden flex flex-col space-y-4 text-base font-medium bg-[#2A0E61] text-white shadow-lg rounded-lg p-4 mt-2">
-          <a href="#home" className="block hover:text-gray-300">Home</a>
-          <a href="#project" className="block hover:text-gray-300">Project</a>
-          <a href="#education" className="block hover:text-gray-300">Education</a>
-          <a href="#contact" className="block hover:text-gray-300">Contact</a>
+          <Link to="home" smooth={true} duration={500} onClick={toggleMenu} className="cursor-pointer block hover:text-gray-300">Home</Link>
+          <Link to="education" smooth={true} duration={500} onClick={toggleMenu} className="cursor-pointer block hover:text-gray-300">Education</Link>
+          <Link to="skills" smooth={true} duration={500} onClick={toggleMenu} className="cursor-pointer block hover:text-gray-300">Skills</Link>
+          <Link to="project" smooth={true} duration={500} onClick={toggleMenu} className="cursor-pointer block hover:text-gray-300">Project</Link>
+          <Link to="contact" smooth={true} duration={500} onClick={toggleMenu} className="cursor-pointer block hover:text-gray-300">Contact</Link>
         </div>
       )}
     </div>

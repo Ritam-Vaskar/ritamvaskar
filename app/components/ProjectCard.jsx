@@ -77,7 +77,7 @@ const ProjectCard = ({ project }) => {
           onClick={() => setModalOpen(false)}
         >
           <motion.div
-            className="bg-gray-900 rounded-xl p-8 max-w-lg mx-auto relative"
+            className="bg-gray-900 rounded-xl p-8 max-w-lg mx-auto relative h-[90vh] overflow-y-auto"
             initial={{ y: 100 }}
             animate={{ y: 0 }}
             exit={{ y: 100 }}
