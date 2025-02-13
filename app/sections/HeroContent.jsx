@@ -4,7 +4,11 @@ import React from "react";
 import { motion } from "framer-motion";
 import { SparklesIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
-import { slideInFromLeft, slideInFromRight, slideInFromTop } from "@/utils/motion";
+import {
+  slideInFromLeft,
+  slideInFromRight,
+  slideInFromTop,
+} from "@/utils/motion";
 
 const HeroContent = () => {
   return (
@@ -23,7 +27,9 @@ const HeroContent = () => {
             variants={slideInFromTop(0.5)}
           >
             <SparklesIcon className="text-[#b49bff] mr-2 h-5 w-5" />
-            <h1 className="Welcome-text text-sm lg:text-base font-semibold">I'm Ritam Vaskar</h1>
+            <h1 className="Welcome-text text-sm lg:text-base font-semibold">
+              I'm Ritam Vaskar
+            </h1>
           </motion.div>
 
           {/* Main Heading */}
@@ -42,16 +48,23 @@ const HeroContent = () => {
             variants={slideInFromLeft(0.8)}
             className="text-sm lg:text-lg text-gray-400 my-4 lg:my-1 max-w-[600px] mx-auto lg:mx-0"
           >
-            I'm a B. Tech CSE student by day, a Full Stack Web Developer by night, and a Coding Enthusiast 24/7. My hobbies include breaking code just to fix it again and sneaking a taste of every new tech like it's dessert at a buffet. Basically, I debug for fun and devour tech trends for breakfast!
+            I'm a B. Tech CSE student by day, a Full Stack Web Developer by
+            night, and a Coding Enthusiast 24/7. My hobbies include breaking
+            code just to fix it again and sneaking a taste of every new tech
+            like it's dessert at a buffet. Basically, I debug for fun and devour
+            tech trends for breakfast!
           </motion.p>
 
           {/* Call-to-Action Button */}
-          <motion.div
+          <motion.a
             className="py-2 px-4 button-primary text-center text-white cursor-pointer rounded-lg max-w-[200px] mx-auto lg:mx-0 bg-gradient-to-r from-purple-600 to-indigo-500 hover:shadow-lg hover:scale-105 transition-transform duration-300"
             variants={slideInFromTop(0.5)}
+            href="https://drive.google.com/file/d/1zQCSqJwbjJa0QRKmD6cchAXaooFpqG2O/view?usp=drive_link"
+            target="_blank" // Opens in a new tab
+            rel="noopener noreferrer" // Security best practice
           >
-            Learn More!
-          </motion.div>
+            Download CV
+          </motion.a>
         </div>
 
         {/* Right Section (Animated Image) */}
