@@ -27,7 +27,7 @@ const ProjectCard = ({ project }) => {
     <>
       {/* Card */}
       <motion.div
-        className="relative w-80 h-[350px] bg-gradient-to-br from-gray-900 to-gray-800 p-6 rounded-3xl shadow-lg hover:cursor-pointer"
+        className="relative w-[100%] h-[350px] bg-gradient-to-br from-gray-900 to-gray-800 p-6 rounded-3xl shadow-lg hover:cursor-pointer"
         variants={hoverAnimation}
         whileHover="whileHover"
       >
@@ -49,7 +49,7 @@ const ProjectCard = ({ project }) => {
         </div>
 
         {/* Buttons */}
-        <div className="flex gap-4 mt-6">
+        <div className="flex gap-4 mt-6 justify-between align-center">
           <button
             className="px-4 py-2 bg-purple-500 rounded-lg text-white font-medium hover:scale-105 transition"
             onClick={() => setModalOpen(true)}
