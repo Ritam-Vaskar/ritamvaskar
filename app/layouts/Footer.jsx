@@ -121,27 +121,27 @@ const Footer = () => {
             <h3 className="text-xl font-semibold text-white">Contact Info</h3>
             <div className="space-y-3">
               <motion.a
-                href="mailto:your.email@example.com"
+                href="mailto:ritamvaskar0@gmail.com"
                 className="text-gray-400 hover:text-purple-500 transition-colors text-sm flex items-center gap-2"
                 whileHover={{ x: 5 }}
               >
                 <Mail size={16} />
-                your.email@example.com
+                ritamvaskar0@gmail.com
               </motion.a>
               <motion.a
-                href="tel:+1234567890"
+                href="tel:+919609887167"
                 className="text-gray-400 hover:text-purple-500 transition-colors text-sm flex items-center gap-2"
                 whileHover={{ x: 5 }}
               >
                 <Phone size={16} />
-                +123 456 7890
+                +91 9609887167
               </motion.a>
               <motion.p
                 className="text-gray-400 text-sm flex items-center gap-2"
                 whileHover={{ x: 5 }}
               >
                 <MapPin size={16} />
-                Your Location, City, Country
+                Raghunathganj, Murshidabad, WB
               </motion.p>
             </div>
           </motion.div>

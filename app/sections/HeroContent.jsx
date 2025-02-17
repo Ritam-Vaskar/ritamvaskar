@@ -46,13 +46,16 @@ const HeroContent = () => {
           {/* Description */}
           <motion.p
             variants={slideInFromLeft(0.8)}
-            className="text-sm lg:text-lg text-gray-400 my-4 lg:my-1 max-w-[600px] mx-auto lg:mx-0"
+            className="text-xs lg:text-[15px] lg:leading-normal text-justify text-gray-400 my-4 lg:my-1 max-w-[600px] mx-auto lg:mx-0"
           >
-            I'm a B. Tech CSE student by day, a Full Stack Web Developer by
-            night, and a Coding Enthusiast 24/7. My hobbies include breaking
-            code just to fix it again and sneaking a taste of every new tech
-            like it's dessert at a buffet. Basically, I debug for fun and devour
-            tech trends for breakfast!
+            I'm a cosmic explorer in the vast universe of code, I navigate the
+            galaxies of Full Stack Development, crafting stellar web experiences
+            that shine across the digital cosmos. 🚀 From debugging black holes
+            of complex code to designing smooth, nebula-like user interfaces, I
+            thrive on solving challenges and bringing ideas to life like
+            constellations forming in the night sky. ✨ Fueled by curiosity and
+            the infinite possibilities of technology, I chart new frontiers,
+            always seeking the next innovation among the stars. 🌌💻
           </motion.p>
 
           {/* Call-to-Action Button */}
