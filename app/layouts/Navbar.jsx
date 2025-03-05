@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { Link } from "react-scroll";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -49,16 +50,38 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Dropdown for Mobile Menu */}
-      {isMenuOpen && (
-        <div className="md:hidden flex flex-col space-y-4 text-base font-medium bg-[#2A0E61] text-white shadow-lg rounded-lg p-4 mt-2">
-          <Link to="home" smooth={true} duration={500} onClick={toggleMenu} className="cursor-pointer block hover:text-gray-300">Home</Link>
-          <Link to="education" smooth={true} duration={500} onClick={toggleMenu} className="cursor-pointer block hover:text-gray-300">Education</Link>
-          <Link to="skills" smooth={true} duration={500} onClick={toggleMenu} className="cursor-pointer block hover:text-gray-300">Skills</Link>
-          <Link to="project" smooth={true} duration={500} onClick={toggleMenu} className="cursor-pointer block hover:text-gray-300">Project</Link>
-          <Link to="contact" smooth={true} duration={500} onClick={toggleMenu} className="cursor-pointer block hover:text-gray-300">Contact</Link>
-        </div>
-      )}
+      {/* Crazy Animated Dropdown for Mobile Menu */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -20, scale: 0.9 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            className="md:hidden absolute top-18 left-0 w-full bg-gradient-to-r from-[#120b2a] via-[#2A0E61] to-[#2A0E61] backdrop-blur-xl text-white shadow-2xl rounded-b-3xl p-6 border-t-4 border-[#fff]/30"
+          >
+            {['home', 'education', 'skills', 'project', 'contact'].map((item, index) => (
+              <motion.div
+                key={item}
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -30 }}
+                transition={{ delay: index * 0.1, duration: 0.3 }}
+              >
+                <Link
+                  to={item}
+                  smooth={true}
+                  duration={500}
+                  onClick={toggleMenu}
+                  className="block text-lg font-medium py-3 px-6 text-center bg-white/10 hover:bg-white/20 rounded-xl transition transform hover:scale-105 shadow-lg m-2"
+                >
+                  {item.charAt(0).toUpperCase() + item.slice(1)}
+                </Link>
+              </motion.div>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
