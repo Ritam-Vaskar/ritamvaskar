@@ -14,7 +14,10 @@ const Navbar = () => {
     <div className="w-full h-[60px] fixed top-0 shadow-lg shadow-[#2A0E61]/50 bg-slate-300/10 backdrop-blur-md z-50 px-10">
       <div className="w-full h-full flex items-center justify-between">
         {/* Logo */}
-        <div className="text-xl font-bold text-[#fff]">Ritam Vaskar</div>
+        
+        <div className="text-xl font-bold text-[#fff] flex justify-center gap-2 items-center">
+        <img className="w-10 h-10 rounded-full" src="./favicon.ico" alt="" />
+          Ritam Vaskar</div>
 
         {/* Navigation Links */}
         <div className="hidden md:flex space-x-8 text-base font-medium text-white">
