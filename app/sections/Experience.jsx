@@ -15,8 +15,8 @@ const Experience = () => {
       duration: "2024 - Present",
       companyUrl: "https://www.fedkiit.com/",
       positions: [
-        { title: "Senior Software Engineer", duration: "2025 - Present" },
-        { title: "Software Engineer", duration: "2024 - 2025" },
+        { title: "Senior Technichal Executive", duration: "Dec 2024 - Present" },
+        { title: "Technichal Executive", duration: "Feb 2024 - Dec 2024" },
       ],
       description:
         "Led development of FED KIIT website. Mentored junior developers and contributed to technical decision-making.",
@@ -40,9 +40,9 @@ const Experience = () => {
       companyBanner: "https://cdn.prod.website-files.com/663d1907e337de23e83c30b2/6713bd34be2521c91c45aefb_301128514_562327412349985_3679940258914638492_n.jpg",
       symbol: "💡",
       location: "Remote",
-      duration: "Oct 2024 - Dec 2024",
+      duration: "Aug 2024 - Dec 2024",
       companyUrl: "https://sriramkrishnasikshaniketan.me/",
-      positions: [{ title: "Full Stack Developer", duration: "2018 - 2020" }],
+      positions: [{ title: "Full Stack Developer", duration: "Aug 2024 - Dec 2024" }],
       description:
         "Developed and maintained full-stack applications using React, Node.js, MongoDB and Express.",
       achievements: [
