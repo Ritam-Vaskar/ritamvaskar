@@ -110,7 +110,7 @@ const Education = () => {
         <div className="relative flex">
           {/* Timeline Line */}
           <motion.div
-            className="absolute left-[3.2rem] top-0 bottom-0 w-1 bg-gradient-to-b from-purple-500 to-indigo-500"
+            className="absolute left-10 top-0 bottom-0 w-1 bg-gradient-to-b from-purple-500 to-indigo-500"
             initial={{ height: 0 }}
             whileInView={{ height: "100%" }}
             transition={{ duration: 1 }}
