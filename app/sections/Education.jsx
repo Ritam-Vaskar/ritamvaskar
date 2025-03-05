@@ -110,7 +110,7 @@ const Education = () => {
         <div className="relative flex">
           {/* Timeline Line */}
           <motion.div
-            className="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-purple-500 to-indigo-500"
+            className="absolute left-12 top-0 bottom-0 w-1 bg-gradient-to-b from-purple-500 to-indigo-500"
             initial={{ height: 0 }}
             whileInView={{ height: "100%" }}
             transition={{ duration: 1 }}
@@ -122,7 +122,7 @@ const Education = () => {
               <div key={index} className="relative">
               {/* Timeline Node */}
               <motion.div
-                className="absolute left-[-28] transform -translate-x-1/2 w-6 h-6 rounded-full bg-purple-500 z-10"
+                className="absolute left-[-18] transform -translate-x-1/2 w-6 h-6 rounded-full bg-purple-500 z-10"
                 initial={{ scale: 0 }}
                 whileInView={{ scale: 1 }}
                 transition={{ duration: 0.5, delay: index * 0.2 }}

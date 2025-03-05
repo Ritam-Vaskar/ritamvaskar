@@ -62,7 +62,7 @@ const HeroContent = () => {
           <motion.a
             className="py-2 px-4 button-primary text-center text-white cursor-pointer rounded-lg max-w-[200px] mx-auto lg:mx-0 bg-gradient-to-r from-purple-600 to-indigo-500 hover:shadow-lg hover:scale-105 transition-transform duration-300"
             variants={slideInFromTop(0.5)}
-            href="https://drive.google.com/file/d/1zQCSqJwbjJa0QRKmD6cchAXaooFpqG2O/view?usp=drive_link"
+            href="https://drive.google.com/file/d/1mVpPxYpIRiXYmDxB4CKEtpMWhrNTMWZh/view?usp=sharing"
             target="_blank" // Opens in a new tab
             rel="noopener noreferrer" // Security best practice
           >
