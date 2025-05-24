@@ -5,7 +5,7 @@ import ProjectCard from "../components/ProjectCard";
 
 const projects = [
   {
-    image: "https://media.licdn.com/dms/image/v2/D5622AQEhsg1HpBFApw/feedshare-shrink_2048_1536/feedshare-shrink_2048_1536/0/1730994898703?e=1741219200&v=beta&t=PFvYmvElqjQk192WDxJoH8lxsx1G59pR0QsRMy7e48s",
+    image: "https://ibb.co/23jhf6r7", 
     title: "School Website",
     shortDescription: "Sri Ramakrishna Siksha Niketan",
     description: "Full description of Project 1 with details about the work done.",
@@ -14,7 +14,7 @@ const projects = [
     liveSite: "https://sriramkrishnasikshaniketan.me/",
   },
   {
-    image: "https://media.licdn.com/dms/image/v2/D5622AQHRzllt4Vfp3Q/feedshare-shrink_2048_1536/feedshare-shrink_2048_1536/0/1724493731551?e=1741219200&v=beta&t=lu-fva-Tqkc0j3yPm5m5hPRr3UlS4GGppC9kkPov78A",
+    image: "https://ibb.co/svn8SGmb",
     title: "FED KIIT",
     shortDescription: "A student body of KIIT TBI",
     description: "It's a student body of KIIT TBI who aim to empower the next generation of entrepreneurs to innovate, lead, and transform the future.",
