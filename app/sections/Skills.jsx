@@ -30,7 +30,7 @@ const Skills = () => {
         { name: "Node.js", image: "/assets/node-js.png", level: 88 },
         { name: "Express.js", image: "/assets/express.png", level: 85 },
         { name: "Flask", image: "https://img.icons8.com/?size=100&id=ewGOClUtmFX4&format=png&color=000000", level: 70 },
-        { name: "REST API", image: "https://img.icons8.com/?size=100&id=WOpIUR7xfsSJ&format=png&color=000000", level: 87 }
+        { name: "REST API", image: "https://img.icons8.com/?size=100&id=MX92yo3ozHJD&format=png&color=000000", level: 87 }
       ]
     },
     {
@@ -75,7 +75,7 @@ const Skills = () => {
       bgGradient: "from-indigo-500/10 to-purple-500/10",
       skills: [
         { name: "SEO Optimization", image: "https://img.icons8.com/?size=100&id=43625&format=png&color=000000", level: 82 },
-        { name: "Google Analytics", image: "https://img.icons8.com/?size=100&id=uGP0rpGSUrv5&format=png&color=000000", level: 80 },
+        { name: "Google Analytics", image: "https://img.icons8.com/?size=100&id=avtI03bQMwX3&format=png&color=000000", level: 70 },
         { name: "Search Console", image: "https://img.icons8.com/?size=100&id=17949&format=png&color=000000", level: 85 }
       ]
     },
