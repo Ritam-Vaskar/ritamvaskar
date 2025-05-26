@@ -6,6 +6,7 @@ const Skills = () => {
   const skills = [
     { name: "C/C++", image: "https://img.icons8.com/?size=100&id=40669&format=png&color=000000" },
     { name: "Java", image: "https://img.icons8.com/?size=100&id=13679&format=png&color=000000" },
+    { name: "Python", image: "https://img.icons8.com/?size=100&id=13441&format=png&color=000000" },
     { name: "React", image: "/assets/react.png" },
     { name: "Node.js", image: "/assets/node-js.png" },
     { name: "MongoDB", image: "/assets/mongodb.png" },
@@ -18,6 +19,7 @@ const Skills = () => {
     { name: "Tailwind CSS", image: "/assets/tailwind.png" },
     { name: "Git", image: "/assets/gitwhite.png" },
     { name: "Framer", image: "/assets/framer.png" },
+
   ];
 
   const floatingAnimation = {

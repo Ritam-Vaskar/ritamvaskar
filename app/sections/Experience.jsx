@@ -58,6 +58,32 @@ const Experience = () => {
       },
       credential: "https://drive.google.com/file/d/1ACSl8_TUfjyJIW94bTJArOydj8vL86np/view?usp=sharing",
     },
+
+    {
+      company: "SSIB Security",
+      title: "FreeLance Web Developer",
+      logo: "/assets/ssib.png",
+      companyBanner: "https://cdn.prod.website-files.com/663d1907e337de23e83c30b2/6834404e821734e4ccd6a3bc_481659659_597651189916030_2603637933769140281_n.jpg",
+      symbol: "💡",
+      location: "Raghunathganj, India (Remote)",
+      duration: "May 2025 - June 2025",
+      companyUrl: "https://ssib.vercel.app/",
+      positions: [{ title: "FreeLance Web Developer", duration: "May 2025 - June 2025" }],
+      description:
+        "Developed and maintained full-stack applications using React, Node.js, MongoDB and Express.",
+      achievements: [
+        "Built and launched the projects with 90% satisfaction rate",
+        "Managed Security Recruitment and Client Apllications",
+        "Digitalized the whole process of Security-Client interaction",
+      ],
+      testimonial: {
+        text: "Your Work digitalized the whole process of Security-Client interaction and made it more efficient.",
+        name: "SSIB Security",
+        role: "Security Service Provider",
+        avatar: "https://cdn.prod.website-files.com/663d1907e337de23e83c30b2/6832f233c430f8f88d751a46_WhatsApp_Image_2025-05-24_at_16.34.24_0df7a67d-removebg-preview.png",
+      },
+      credential: "https://ssib.vercel.app/",
+    },
   ];
 
   const floatingAnimation = {

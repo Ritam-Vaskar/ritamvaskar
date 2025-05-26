@@ -5,7 +5,7 @@ import ProjectCard from "../components/ProjectCard";
 
 const projects = [
   {
-    image: "https://ibb.co/23jhf6r7", 
+    image: "https://cdn.prod.website-files.com/663d1907e337de23e83c30b2/68344243f121e1425cd909d3_Screenshot%202025-05-26%20155812.png", 
     title: "School Website",
     shortDescription: "Sri Ramakrishna Siksha Niketan",
     description: "Full description of Project 1 with details about the work done.",
@@ -14,7 +14,7 @@ const projects = [
     liveSite: "https://sriramkrishnasikshaniketan.me/",
   },
   {
-    image: "https://ibb.co/svn8SGmb",
+    image: "https://cdn.prod.website-files.com/663d1907e337de23e83c30b2/6834422a58f0ebe311f95408_Screenshot%202025-05-26%20155742.png",
     title: "FED KIIT",
     shortDescription: "A student body of KIIT TBI",
     description: "It's a student body of KIIT TBI who aim to empower the next generation of entrepreneurs to innovate, lead, and transform the future.",
@@ -30,7 +30,16 @@ const projects = [
     techStack: ["React", "SCSS", "Framer-Motion", "Vercel"],
     github: "https://github.com/Ritam-Vaskar/k-1000.git",
     liveSite: "https://k-1000.vercel.app/",
-  }
+  },
+  {
+    image: "https://cdn.prod.website-files.com/663d1907e337de23e83c30b2/6834431153700a9fd2e84f06_Screenshot%202025-05-25%20212045.png",
+    title: "SSIB Security Services",
+    shortDescription: "Security Services and Management",
+    description: "SSIB Security Services is a leading provider of comprehensive security solutions, dedicated to ensuring the safety and protection of individuals and businesses.",
+    techStack: ["React", "MongoDB", "Express", "Node.js", "Modular CSS"],
+    github: "https://github.com/Ritam-Vaskar/ssib",
+    liveSite: "https://ssib.vercel.app/",
+  },
 ];
 
 const ProjectsPage = () => {
