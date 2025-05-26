@@ -46,7 +46,7 @@ const HeroContent = () => {
           {/* Description */}
           <motion.p
             variants={slideInFromLeft(0.8)}
-            className="text-xs lg:text-[17px] lg:leading-normal text-justify text-gray-400 my-4 lg:my-1 max-w-[600px] mx-auto lg:mx-0"
+            className="text-sm lg:text-[17px] lg:leading-normal text-justify text-gray-400 my-4 lg:my-1 max-w-[600px] mx-auto lg:mx-0"
           >
             I'm a cosmic explorer in the vast universe of code, I navigate the
             galaxies of Full Stack Development, crafting stellar web experiences
