@@ -67,7 +67,7 @@ const Experience = () => {
       symbol: "💡",
       location: "Raghunathganj, India (Remote)",
       duration: "May 2025 - June 2025",
-      companyUrl: "https://ssib.vercel.app/",
+      companyUrl: "https://ssibservices.in/",
       positions: [{ title: "FreeLance Web Developer", duration: "May 2025 - June 2025" }],
       description:
         "Developed and maintained full-stack applications using React, Node.js, MongoDB and Express.",
