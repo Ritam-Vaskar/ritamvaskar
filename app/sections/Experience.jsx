@@ -15,7 +15,8 @@ const Experience = () => {
       duration: "2024 - Present",
       companyUrl: "https://www.fedkiit.com/",
       positions: [
-        { title: "Senior Technichal Executive", duration: "Dec 2024 - Present" },
+        { title: "Technichal Director", duration: "Aug 2025 - Present" },
+        { title: "Senior Technichal Executive", duration: "Dec 2024 - Aug 2025" },
         { title: "Technichal Executive", duration: "Feb 2024 - Dec 2024" },
       ],
       description:
