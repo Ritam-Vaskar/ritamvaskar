@@ -7,7 +7,7 @@ const Experience = () => {
   const experiences = [
     {
       company: "FED KIIT",
-      title: "Senior Technichal Executive",
+      title: "Technical Director",
       logo: "/assets/fed_logo.png",
       companyBanner: "https://cdn.prod.website-files.com/67aa2520eb413205a7dac909/67ae48e9f9239af1b55c496e_WhatsApp%20Image%202024-11-10%20at%2013.26.42_8e6d68b9.jpg",
       symbol: "🚀",
