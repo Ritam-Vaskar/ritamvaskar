@@ -40,6 +40,24 @@ const projects = [
     github: "https://github.com/Ritam-Vaskar/ssib",
     liveSite: "https://ssib.vercel.app/",
   },
+  {
+    image: "https://cdn.prod.website-files.com/663d1907e337de23e83c30b2/69b12fd1b8c99754ee156ac1_Screenshot%202026-03-11%20142955.png",
+    title: "FAKTCHECK",
+    shortDescription: "Quiz & Coding Contest Platform",
+    description: "A powerful, secure, and scalable platform built to host customized quiz & coding contests with ease.",
+    techStack: ["MongoDB", "Express", "React", "Node.js", "Judge0"],
+    github: "https://github.com/Ritam-Vaskar/KodingKulture.git",
+    liveSite: "https://faktcheck.fedkiit.com/",
+  },
+  {
+    image: "https://cdn.prod.website-files.com/663d1907e337de23e83c30b2/69b12fd1c0493ab06357dab0_Screenshot%202026-03-11%20143056.png",
+    title: "STAYSYNC",
+    shortDescription: "AI-Powered Stay Management Platform For MICE event and Destination Weddings",
+    description: "An intelligent stay management platform For MICE event and Destination Weddings featuring AI-powered recommendations, real-time synchronization, and integrated communication tools.",
+    techStack: ["MongoDB", "Express", "React", "Node.js", "QdrantDB", "OpenAI", "Redis", "Zustand", "Telegram BOT"],
+    github: "https://github.com/Ritam-Vaskar/SyncStay.git",
+    liveSite: "https://staysync.fedkiit.com/",
+  },
 ];
 
 const ProjectsPage = () => {
