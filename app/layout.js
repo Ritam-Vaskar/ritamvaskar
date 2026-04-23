@@ -3,7 +3,6 @@ import "./globals.css";
 
 import Navbar from "./layouts/Navbar";
 import Footer from "./layouts/Footer";
-import ParticlesBackground from "./components/ParticlesBackground";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,14 +25,6 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen `}
       >
-        <ParticlesBackground
-          
-          particleCount={70}
-          maxDistance={120}
-          backgroundColor="#0000" // Even lighter purple background
-          particleColor="#a855f7" // Different shade of purple
-        
-        />
         <div className="relative z-10">
           <Navbar />
           {children}
