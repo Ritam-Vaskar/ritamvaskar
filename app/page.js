@@ -1,8 +1,8 @@
 import AboutMe from "./sections/About";
 import Education from "./sections/Education";
-import Skills from "./sections/Skills";
+import SkillsPreview from "./sections/SkillsPreview";
+import ProjectsPreview from "./sections/ProjectsPreview";
 import Contact from "./sections/Contact";
-import ProjectsPage from "./sections/Project";
 import Experience from "./sections/Experience";
 
 
@@ -13,8 +13,8 @@ export default function Home() {
         <section id="home"><AboutMe /></section>
         <section id="education"><Education /></section>
         <section id="experience"><Experience /></section>
-        <section id="skills"><Skills /></section>
-        <section id="project"><ProjectsPage /></section>
+        <section id="skills"><SkillsPreview /></section>
+        <section id="project"><ProjectsPreview /></section>
         <section id="contact"><Contact /></section>
       </div>
     </main>

@@ -3,6 +3,7 @@ import "./globals.css";
 
 import Navbar from "./layouts/Navbar";
 import Footer from "./layouts/Footer";
+import PageLoader from "./components/PageLoader";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,6 +27,7 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen `}
       >
         <div className="relative z-10">
+          <PageLoader />
           <Navbar />
           {children}
           <Footer />

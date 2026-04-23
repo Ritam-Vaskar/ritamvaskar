@@ -51,11 +51,11 @@ const projects = [
   {
     image: "https://cdn.prod.website-files.com/663d1907e337de23e83c30b2/69b12fd1c0493ab06357dab0_Screenshot%202026-03-11%20143056.png",
     title: "STAYSYNC",
-    shortDescription: "Stay Management Platform For MICE event and Destination Weddings",
+    shortDescription: "Management For Group Tour/Event",
     description: "An intelligent stay management platform For MICE event and Destination Weddings featuring AI-powered recommendations, real-time synchronization, and integrated communication tools.",
     techStack: ["MongoDB", "Express", "React", "Node.js", "QdrantDB", "OpenAI", "Redis", "Zustand", "Telegram BOT"],
     github: "https://github.com/Ritam-Vaskar/SyncStay.git",
-    liveSite: "https://staysync.fedkiit.com/",
+    liveSite: "https://staysync.ritamvaskar.tech/",
   },
 ];
 
