@@ -83,18 +83,20 @@ const Experience = () => {
   ];
 
   return (
-    <section className="min-h-screen w-full py-20 px-4 flex flex-col items-center">
+    <section className="w-full py-10 px-4 sm:px-6 flex flex-col items-center">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
+        <div className="text-center mb-8 sm:mb-10">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Professional <span className="text-slate-300">Experience</span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">A journey through my professional growth and achievements</p>
         </div>
 
-        <div className="space-y-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-5">
           {experiences.map((experience) => (
-            <ExperienceCard key={experience.company} experience={experience} />
+            <div key={experience.company} className="h-full">
+              <ExperienceCard experience={experience} />
+            </div>
           ))}
         </div>
       </div>

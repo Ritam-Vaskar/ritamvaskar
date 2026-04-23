@@ -35,9 +35,9 @@ const Education = () => {
   ];
 
   return (
-    <section className="relative min-h-screen w-full py-14 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center">
+    <section className="relative w-full py-10 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center">
       <div className="w-full max-w-5xl mx-auto">
-        <div className="text-center mb-12 sm:mb-14">
+        <div className="text-center mb-8 sm:mb-10">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
             My <span className="text-slate-300">Education</span> Journey
           </h2>
@@ -47,12 +47,10 @@ const Education = () => {
         </div>
 
         <div className="relative">
-          <div className="space-y-8 sm:space-y-10">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-5">
             {educationData.map((edu, index) => (
-              <div key={edu.institution} className="relative">
-                <div className="w-full">
-                  <EducationCard data={edu} index={index} />
-                </div>
+              <div key={edu.institution} className="relative h-full">
+                <EducationCard data={edu} index={index} />
               </div>
             ))}
           </div>
