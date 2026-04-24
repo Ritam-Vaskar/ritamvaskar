@@ -1,4 +1,4 @@
-import ExperienceForm from "../../../../../components/admin/ExperienceForm";
+import ExperienceForm from "../../../../components/admin/ExperienceForm";
 import connectDB from "../../../../../utils/mongodb";
 import Experience from "../../../../../models/Experience";
 import { notFound } from "next/navigation";
