@@ -8,6 +8,8 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import NewsletterForm from "../../../components/NewsletterForm";
+import BlogReviewForm from "../../../components/BlogReviewForm";
 
 export default function BlogPostClient({ params }) {
   const { id } = use(params);
@@ -142,6 +144,9 @@ export default function BlogPostClient({ params }) {
               {post.content}
             </ReactMarkdown>
           </div>
+
+          <BlogReviewForm blogTitle={post.title} />
+          <NewsletterForm />
         </div>
       </article>
     </main>

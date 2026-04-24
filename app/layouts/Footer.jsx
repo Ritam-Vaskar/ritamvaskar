@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { Github, Linkedin, Mail, Phone, MapPin, ArrowUp, Code, Heart } from "lucide-react";
 
@@ -16,6 +16,52 @@ const Footer = () => {
     { name: "Certifications", href: "/certifications" },
     { name: "Blog", href: "/blog" },
   ];
+
+  const [email, setEmail] = useState("");
+  const [otp, setOtp] = useState("");
+  const [step, setStep] = useState(1);
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("");
+
+  const handleSendOtp = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setMessage("");
+    try {
+      const res = await fetch("/api/subscribe/send-otp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        setStep(2);
+        setMessage("OTP sent! Check your inbox.");
+      } else setMessage(data.error || "Failed to send OTP.");
+    } catch (error) {
+      setMessage("Network error. Try again.");
+    }
+    setLoading(false);
+  };
+
+  const handleVerifyOtp = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setMessage("");
+    try {
+      const res = await fetch("/api/subscribe/verify-otp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, otp }),
+      });
+      const data = await res.json();
+      if (res.ok) setStep(3);
+      else setMessage(data.error || "Invalid OTP.");
+    } catch (error) {
+      setMessage("Network error. Try again.");
+    }
+    setLoading(false);
+  };
 
   return (
     <footer className="w-full bg-slate-900 border-t border-slate-700">
@@ -56,10 +102,26 @@ const Footer = () => {
           <div className="space-y-4">
             <h3 className="text-xl font-semibold text-white">Newsletter</h3>
             <p className="text-gray-400 text-sm">Subscribe to stay updated with my latest projects and tech articles.</p>
-            <form className="flex flex-col gap-2">
-              <input type="email" placeholder="Enter your email" className="px-4 py-2 bg-slate-800 border border-slate-700 focus:outline-none focus:border-slate-500 text-gray-300 text-sm" />
-              <button className="px-4 py-2 bg-slate-700 border border-slate-600 text-white text-sm font-medium hover:bg-slate-600 transition-colors">Subscribe</button>
-            </form>
+            {step === 1 && (
+              <form onSubmit={handleSendOtp} className="flex flex-col gap-2">
+                <input required type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Enter your email" className="px-4 py-2 bg-slate-800 border border-slate-700 focus:outline-none focus:border-slate-500 text-gray-300 text-sm" />
+                <button type="submit" disabled={loading} className="px-4 py-2 bg-slate-700 border border-slate-600 text-white text-sm font-medium hover:bg-slate-600 transition-colors disabled:opacity-50">{loading ? "Sending..." : "Subscribe"}</button>
+                {message && <p className="text-red-400 text-xs">{message}</p>}
+              </form>
+            )}
+            {step === 2 && (
+              <form onSubmit={handleVerifyOtp} className="flex flex-col gap-2">
+                <p className="text-slate-400 text-xs">Enter the 6-digit OTP sent to {email}</p>
+                <input required type="text" value={otp} onChange={(e) => setOtp(e.target.value)} placeholder="Enter OTP" className="px-4 py-2 bg-slate-800 border border-slate-700 focus:outline-none focus:border-slate-500 text-gray-300 text-sm font-mono tracking-widest" />
+                <button type="submit" disabled={loading} className="px-4 py-2 bg-slate-700 border border-slate-600 text-white text-sm font-medium hover:bg-slate-600 transition-colors disabled:opacity-50">Verify OTP</button>
+                {message && <p className="text-yellow-400 text-xs">{message}</p>}
+              </form>
+            )}
+            {step === 3 && (
+              <div className="px-4 py-3 bg-green-950/30 border border-green-800/50 text-green-400">
+                <p className="text-sm font-medium">Subscribed Successfully!</p>
+              </div>
+            )}
           </div>
         </div>
       </div>
