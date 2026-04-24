@@ -41,7 +41,7 @@ export async function POST(request, { params }) {
     // Note: Free Resend tier limits to 100 emails/day, using bcc or batch is recommended.
     // For simplicity, we'll send a single email with multiple bcc or to.
     const { error } = await resend.emails.send({
-      from: "Portfolio Updates <noreply@ritamvaskar.tech>",
+      from: "Ritam Vaskar's Updates <noreply@ritamvaskar.tech>",
       to: "subscribers@ritamvaskar.tech", // Dummy 'to', real recipients in 'bcc'
       bcc: emails,
       subject: `New Post: ${blog.title}`,

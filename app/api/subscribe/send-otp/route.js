@@ -35,9 +35,9 @@ export async function POST(request) {
     }
 
     const { error } = await resend.emails.send({
-      from: "Portfolio Newsletter <noreply@ritamvaskar.tech>",
+      from: "Ritam Vaskar's Newsletter <noreply@ritamvaskar.tech>",
       to: email,
-      subject: "Verify your Newsletter Subscription",
+      subject: "Verify your Newsletter Subscription - Ritam Vaskar",
       html: `
         <h2>Verify your email</h2>
         <p>Your OTP code to subscribe to the newsletter is: <strong>${otp}</strong></p>
