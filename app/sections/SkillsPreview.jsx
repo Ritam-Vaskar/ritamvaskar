@@ -4,15 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
-const skillDomains = [
-  { title: "Frontend Development", icon: "🎨", count: 7 },
-  { title: "Backend Development", icon: "⚙️", count: 4 },
-  { title: "Programming Languages", icon: "💻", count: 4 },
-  { title: "Database Management", icon: "🗄️", count: 3 },
-  { title: "Operating System", icon: "🐧", count: 4 },
-  { title: "SEO & Analytics", icon: "📊", count: 3 },
-  { title: "Data & Web Scraping", icon: "🔍", count: 3 },
-];
+import { skillDomains } from "./Skills";
 
 const SkillsPreview = () => {
   return (
@@ -37,7 +29,7 @@ const SkillsPreview = () => {
               <h3 className="text-white text-xs sm:text-sm font-semibold leading-tight mb-1">
                 {domain.title}
               </h3>
-              <p className="text-gray-500 text-xs">{domain.count} skills</p>
+              <p className="text-gray-500 text-xs">{domain.skills.length} skills</p>
             </div>
           ))}
         </div>

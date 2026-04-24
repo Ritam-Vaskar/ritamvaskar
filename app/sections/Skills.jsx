@@ -4,7 +4,7 @@ import React, { useRef, useEffect, useState } from "react";
 import BlurImage from "../components/BlurImage";
 import { Skeleton } from "../components/Skeleton";
 
-const skillDomains = [
+export const skillDomains = [
   {
     title: "Frontend Development",
     icon: "🎨",
