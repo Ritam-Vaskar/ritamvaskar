@@ -31,8 +31,12 @@ export default function AdminDashboard() {
     ]);
     const blogsData = await blogsRes.json();
     const certsData = await certsRes.json();
+    
+    // Sort certifications by issue date
+    const sortedCerts = certsData.sort((a, b) => new Date(b.date) - new Date(a.date));
+    
     setBlogs(blogsData);
-    setCertifications(certsData);
+    setCertifications(sortedCerts);
     setLoading(false);
   };
 

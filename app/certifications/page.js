@@ -13,7 +13,9 @@ const CertificationsPage = () => {
     fetch("/api/certifications")
       .then((res) => res.json())
       .then((data) => {
-        setCertifications(data);
+        // Sort certificates by issue date (newest first)
+        const sortedData = data.sort((a, b) => new Date(b.date) - new Date(a.date));
+        setCertifications(sortedData);
         setLoading(false);
       })
       .catch((err) => {
