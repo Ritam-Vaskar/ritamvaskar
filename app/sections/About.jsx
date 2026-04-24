@@ -22,7 +22,7 @@ const AboutMe = () => {
             <div className="relative w-[220px] h-[220px] border border-slate-700 p-3">
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="relative w-[190px] h-[190px] overflow-hidden border border-slate-700">
-                  <Image src="/assets/ritam.jpeg" alt="Ritam Vaskar Avatar" fill className="object-cover" priority />
+                  <Image src="https://res.cloudinary.com/dzywyvdsr/image/upload/v1777056489/portfolio_blog/duywuqh8efec0rm9talj.jpg" alt="Ritam Vaskar Avatar" fill className="object-cover" priority />
                 </div>
               </div>
             </div>
@@ -55,7 +55,7 @@ const AboutMe = () => {
           <div className="relative w-[250px] h-[250px] lg:w-[300px] lg:h-[300px] border border-slate-700 p-3">
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="relative w-[220px] h-[220px] lg:w-[260px] lg:h-[260px] overflow-hidden border border-slate-700">
-                <Image src="/assets/ritam.jpeg" alt="Ritam Vaskar Avatar" fill className="object-cover" priority />
+                <Image src="https://res.cloudinary.com/dzywyvdsr/image/upload/v1777056489/portfolio_blog/duywuqh8efec0rm9talj.jpg" alt="Ritam Vaskar Avatar" fill className="object-cover" priority />
               </div>
             </div>
           </div>

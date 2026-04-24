@@ -30,7 +30,7 @@ const Navbar = () => {
     <div className="w-full h-[60px] fixed top-0 bg-slate-900 border-b border-slate-700 z-50 px-4 sm:px-6 md:px-10">
       <div className="w-full h-full flex items-center justify-between">
         <NextLink href="/" className="text-lg sm:text-xl font-bold text-white flex justify-center gap-2 items-center">
-          <img className="w-8 h-8 sm:w-10 sm:h-10 border border-slate-600" src="/favicon.ico" alt="" />
+          <img className="w-8 h-8 sm:w-10 sm:h-10 border border-slate-600 object-cover" src="https://res.cloudinary.com/dzywyvdsr/image/upload/v1777056489/portfolio_blog/duywuqh8efec0rm9talj.jpg" alt="Ritam Vaskar" />
           <span className="hidden sm:inline">Ritam Vaskar</span>
           <span className="sm:hidden">RV</span>
         </NextLink>
