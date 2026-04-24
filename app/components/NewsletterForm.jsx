@@ -75,7 +75,7 @@ export default function NewsletterForm() {
         <div className="flex-1">
           {step === 1 && (
             <form onSubmit={handleSendOtp} className="flex flex-col gap-2">
-              <div className="flex">
+              <div className="flex flex-col sm:flex-row gap-2 sm:gap-0">
                 <input
                   type="email"
                   required
@@ -87,7 +87,7 @@ export default function NewsletterForm() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="px-4 py-2.5 bg-slate-700 hover:bg-slate-600 border border-slate-600 border-l-0 text-white font-medium text-sm transition-colors disabled:opacity-50"
+                  className="px-4 py-2.5 bg-slate-700 hover:bg-slate-600 border border-slate-600 sm:border-l-0 text-white font-medium text-sm transition-colors disabled:opacity-50"
                 >
                   {loading ? "Sending..." : "Subscribe"}
                 </button>
@@ -99,7 +99,7 @@ export default function NewsletterForm() {
           {step === 2 && (
             <form onSubmit={handleVerifyOtp} className="flex flex-col gap-2">
               <p className="text-slate-300 text-xs mb-1">Enter the 6-digit OTP sent to {email}</p>
-              <div className="flex">
+              <div className="flex flex-col sm:flex-row gap-2 sm:gap-0">
                 <input
                   type="text"
                   required
@@ -111,7 +111,7 @@ export default function NewsletterForm() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="px-4 py-2.5 bg-slate-700 hover:bg-slate-600 border border-slate-600 border-l-0 text-white font-medium text-sm transition-colors disabled:opacity-50 flex items-center gap-1"
+                  className="px-4 py-2.5 bg-slate-700 hover:bg-slate-600 border border-slate-600 sm:border-l-0 text-white font-medium text-sm transition-colors disabled:opacity-50 flex items-center justify-center gap-1"
                 >
                   Verify <ArrowRight size={14} />
                 </button>
