@@ -9,6 +9,7 @@ export default function AdminDashboard() {
   const [activeTab, setActiveTab] = useState("blogs");
   const [blogs, setBlogs] = useState([]);
   const [certifications, setCertifications] = useState([]);
+  const [experiences, setExperiences] = useState([]);
   const [reviews, setReviews] = useState([]);
   const [subscribers, setSubscribers] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -28,14 +29,16 @@ export default function AdminDashboard() {
 
   const fetchAllData = async () => {
     setLoading(true);
-    const [blogsRes, certsRes, reviewsRes, subsRes] = await Promise.all([
+    const [blogsRes, certsRes, expRes, reviewsRes, subsRes] = await Promise.all([
       fetch("/api/blogs"),
       fetch("/api/certifications"),
+      fetch("/api/experience"),
       fetch("/api/reviews"),
       fetch("/api/subscribe")
     ]);
     const blogsData = await blogsRes.json();
     const certsData = await certsRes.json();
+    const expData = await expRes.json();
     const reviewsData = await reviewsRes.json();
     const subsData = await subsRes.json();
     
@@ -44,6 +47,7 @@ export default function AdminDashboard() {
     
     setBlogs(blogsData);
     setCertifications(sortedCerts);
+    setExperiences(expData.error ? [] : expData);
     setReviews(reviewsData.error ? [] : reviewsData);
     setSubscribers(subsData.error ? [] : subsData);
     setLoading(false);
@@ -62,6 +66,14 @@ export default function AdminDashboard() {
     setDeleting(id);
     await fetch(`/api/certifications/${id}`, { method: "DELETE" });
     setCertifications(certifications.filter((c) => c._id !== id));
+    setDeleting(null);
+  };
+
+  const handleDeleteExp = async (id) => {
+    if (!confirm("Delete this experience? This cannot be undone.")) return;
+    setDeleting(id);
+    await fetch(`/api/experience/${id}`, { method: "DELETE" });
+    setExperiences(experiences.filter((e) => e._id !== id));
     setDeleting(null);
   };
 
@@ -113,12 +125,12 @@ export default function AdminDashboard() {
               <h1 className="text-2xl sm:text-3xl font-bold text-white">Admin Dashboard</h1>
             </div>
             <div className="flex gap-3">
-              {(activeTab === "blogs" || activeTab === "certifications") && (
+              {(activeTab === "blogs" || activeTab === "certifications" || activeTab === "experiences") && (
                 <Link
-                  href={activeTab === "blogs" ? "/admin/blog/new" : "/admin/certification/new"}
+                  href={activeTab === "blogs" ? "/admin/blog/new" : activeTab === "certifications" ? "/admin/certification/new" : "/admin/experience/new"}
                   className="flex items-center gap-2 px-4 py-2 bg-slate-700 border border-slate-600 text-white text-sm font-medium hover:bg-slate-600 transition-colors"
                 >
-                  <Plus size={16} /> New {activeTab === "blogs" ? "Post" : "Certification"}
+                  <Plus size={16} /> New {activeTab === "blogs" ? "Post" : activeTab === "certifications" ? "Certification" : "Experience"}
                 </Link>
               )}
               <button
@@ -143,6 +155,12 @@ export default function AdminDashboard() {
               className={`px-6 py-3 text-sm font-medium border-b-2 transition-colors ${activeTab === "certifications" ? "border-slate-300 text-white" : "border-transparent text-gray-500 hover:text-gray-300"}`}
             >
               Certifications ({certifications.length})
+            </button>
+            <button
+              onClick={() => setActiveTab("experiences")}
+              className={`px-6 py-3 text-sm font-medium border-b-2 transition-colors ${activeTab === "experiences" ? "border-slate-300 text-white" : "border-transparent text-gray-500 hover:text-gray-300"}`}
+            >
+              Experiences ({experiences.length})
             </button>
             <button
               onClick={() => setActiveTab("reviews")}
@@ -234,6 +252,43 @@ export default function AdminDashboard() {
                       </Link>
                       <button onClick={() => handleDeleteCert(cert._id)} disabled={deleting === cert._id} className="p-2 border border-slate-700 text-gray-400 hover:text-red-400 hover:border-red-700 transition-colors disabled:opacity-50" title="Delete">
                         {deleting === cert._id ? <div className="w-3.5 h-3.5 border border-slate-600 border-t-slate-300 animate-spin" /> : <Trash2 size={14} />}
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )
+          )}
+
+          {activeTab === "experiences" && (
+            experiences.length === 0 ? (
+              <div className="text-center py-16 border border-slate-700 bg-slate-900">
+                <p className="text-gray-400 mb-4">No experiences yet</p>
+                <Link href="/admin/experience/new" className="text-slate-300 hover:text-white underline text-sm">
+                  Add your first experience →
+                </Link>
+              </div>
+            ) : (
+              <div className="space-y-3">
+                {experiences.map((exp) => (
+                  <div key={exp._id} className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 border border-slate-700 bg-slate-900 hover:border-slate-600 transition-colors">
+                    <div className="flex items-center gap-4 flex-1 min-w-0">
+                      {exp.logo && (
+                        <div className="w-10 h-10 bg-slate-800 p-1 shrink-0 border border-slate-700">
+                          <img src={exp.logo} alt={exp.company} className="w-full h-full object-contain" />
+                        </div>
+                      )}
+                      <div className="min-w-0">
+                        <h3 className="text-white font-semibold text-sm sm:text-base truncate">{exp.title}</h3>
+                        <p className="text-gray-400 text-xs truncate">{exp.company} • {exp.duration}</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2 shrink-0">
+                      <Link href={`/admin/experience/edit/${exp._id}`} className="p-2 border border-slate-700 text-gray-400 hover:text-white hover:border-slate-500 transition-colors" title="Edit">
+                        <Edit size={14} />
+                      </Link>
+                      <button onClick={() => handleDeleteExp(exp._id)} disabled={deleting === exp._id} className="p-2 border border-slate-700 text-gray-400 hover:text-red-400 hover:border-red-700 transition-colors disabled:opacity-50" title="Delete">
+                        {deleting === exp._id ? <div className="w-3.5 h-3.5 border border-slate-600 border-t-slate-300 animate-spin" /> : <Trash2 size={14} />}
                       </button>
                     </div>
                   </div>
