@@ -29,6 +29,16 @@ const skillDomains = [
     ],
   },
   {
+    title: "DevOps",
+    icon: "☁️",
+    skills: [
+      { name: "Git & Github", image: "https://img.icons8.com/?size=100&id=12599&format=png&color=FFFFFF", level: 85 },
+      { name: "Docker", image: "https://img.icons8.com/?size=100&id=22813&format=png&color=000000", level: 75 },
+      { name: "AWS", image: "https://img.icons8.com/?size=100&id=33039&format=png&color=000000", level: 70 },
+      { name: "Azure", image: "https://img.icons8.com/?size=100&id=VLKafOkk3sBX&format=png&color=000000", level: 70 },
+    ],
+  },
+  {
     title: "Programming Languages",
     icon: "💻",
     skills: [
@@ -54,7 +64,20 @@ const skillDomains = [
       { name: "Windows", image: "https://img.icons8.com/?size=100&id=108792&format=png&color=000000", level: 90 },
       { name: "Linux", image: "https://img.icons8.com/?size=100&id=17842&format=png&color=000000", level: 75 },
       { name: "Shell Scripting", image: "https://img.icons8.com/?size=100&id=9MJf0ngDwS8z&format=png&color=000000", level: 78 },
-      { name: "Git", image: "/assets/gitwhite.png", level: 88 },
+    ],
+  },
+  {
+    title: "AI (Generative & Agentic)",
+    icon: "🤖",
+    skills: [
+      { name: "ChatGPT", image: "https://img.icons8.com/?size=100&id=FBO05Dys9QCg&format=png&color=FFFFFF", level: 85 },
+      { name: "Chroma DB", image: "https://img.icons8.com/?size=100&id=13271&format=png&color=FFFFFF", level: 80 },
+      { name: "Qdrant DB", image: "https://img.icons8.com/?size=100&id=13271&format=png&color=FFFFFF", level: 75 },
+      { name: "Embeddings", image: "https://img.icons8.com/?size=100&id=103328&format=png&color=FFFFFF", level: 85 },
+      { name: "RAG", image: "https://img.icons8.com/?size=100&id=51296&format=png&color=FFFFFF", level: 85 },
+      { name: "MCP", image: "https://img.icons8.com/?size=100&id=114330&format=png&color=FFFFFF", level: 70 },
+      { name: "AI Agents", image: "https://img.icons8.com/?size=100&id=114321&format=png&color=FFFFFF", level: 75 },
+      { name: "Prompt Engineering", image: "https://img.icons8.com/?size=100&id=63308&format=png&color=FFFFFF", level: 90 },
     ],
   },
   {
