@@ -3,48 +3,65 @@ import React, { useState } from "react";
 import { ExternalLink, Award, X, Briefcase, Calendar, MapPin } from "lucide-react";
 import BlurImage from "./BlurImage";
 
-const ExperienceCard = ({ experience }) => {
+const ExperienceCard = ({ experience, index }) => {
   const [showModal, setShowModal] = useState(false);
 
   return (
     <>
-      <div className="relative w-full h-full border border-slate-700 overflow-hidden bg-slate-900 flex flex-col justify-between hover:border-slate-500 transition-colors">
-        <div className="relative p-6 flex flex-col h-full">
-          <div className="flex flex-col gap-6 items-center text-center flex-1">
-            <div className="relative">
-              <div className="w-20 h-20 mx-auto bg-slate-800 border border-slate-700 p-3 flex items-center justify-center rounded-full">
+      <div className="relative h-full">
+        <div className="w-full h-full flex flex-col p-4 sm:p-5 border border-slate-700 bg-slate-900 hover:border-slate-500 transition-colors">
+          <div className="absolute top-0 right-0 px-3 py-1 border-l border-b border-slate-700 bg-slate-800 text-xs text-slate-300 z-10">
+            Role {index + 1}
+          </div>
+
+          <div className="flex-1 space-y-4 flex flex-col">
+            <div className="flex items-start gap-3 pr-12">
+              <div className="p-2 border border-slate-600 bg-slate-800 mt-1 shrink-0">
                 <BlurImage
                   src={experience.logo}
                   alt={experience.company}
-                  className="w-12 h-12 object-contain"
+                  className="w-5 h-5 sm:w-6 sm:h-6 object-contain"
                   containerClassName="flex items-center justify-center"
                 />
               </div>
+              <div>
+                <h3 className="text-base sm:text-lg font-semibold text-white leading-snug">{experience.title}</h3>
+                <p className="text-slate-300 text-sm sm:text-base mt-1">{experience.company}</p>
+              </div>
             </div>
 
-            <div className="flex-1">
-              <h3 className="text-xl font-bold text-white mb-2">{experience.title}</h3>
-              <div className="flex items-center justify-center gap-2 text-slate-300 mb-4">
-                <Briefcase size={16} />
-                <span>{experience.company}</span>
+            <div className="grid grid-cols-1 gap-2 text-sm text-gray-300">
+              <div className="flex items-center gap-2 border border-slate-700 bg-slate-800 px-3 py-2">
+                <Calendar className="w-4 h-4 text-slate-400 shrink-0" />
+                <span className="truncate">{experience.duration}</span>
               </div>
+              <div className="flex items-center gap-2 border border-slate-700 bg-slate-800 px-3 py-2">
+                <MapPin className="w-4 h-4 text-slate-400 shrink-0" />
+                <span className="truncate">{experience.location}</span>
+              </div>
+            </div>
 
-              <div className="space-y-2 mb-6">
-                {experience.positions.map((position, index) => (
-                  <div key={index} className="flex flex-col items-center">
+            <div className="space-y-2 border border-slate-700 bg-slate-800 p-3 flex-1">
+              <p className="text-gray-400 text-xs sm:text-sm font-medium mb-2 border-b border-slate-700 pb-2">Timeline</p>
+              <div className="space-y-2">
+                {experience.positions.slice(0, 2).map((position, idx) => (
+                  <div key={idx} className="flex flex-col">
                     <span className="text-sm text-gray-300">{position.title}</span>
                     <span className="text-xs text-gray-500">{position.duration}</span>
                   </div>
                 ))}
+                {experience.positions.length > 2 && (
+                  <span className="text-xs text-slate-400 italic">+{experience.positions.length - 2} more roles...</span>
+                )}
               </div>
             </div>
 
-            <div className="flex flex-col w-full gap-3 mt-auto">
-              <button className="px-4 py-2 bg-slate-700 text-white border border-slate-600 w-full hover:bg-slate-600 transition-colors text-sm" onClick={() => setShowModal(true)}>
+            <div className="grid grid-cols-2 gap-2 mt-auto">
+              <button className="px-3 py-2 bg-slate-700 text-white border border-slate-600 hover:bg-slate-600 transition-colors text-xs sm:text-sm text-center" onClick={() => setShowModal(true)}>
                 View Details
               </button>
-              <a href={experience.companyUrl} target="_blank" rel="noopener noreferrer" className="px-4 py-2 border border-slate-600 text-slate-300 w-full text-center hover:bg-slate-800 transition-colors text-sm">
-                Visit Company
+              <a href={experience.companyUrl} target="_blank" rel="noopener noreferrer" className="px-3 py-2 border border-slate-600 text-slate-300 text-center hover:bg-slate-800 transition-colors text-xs sm:text-sm flex items-center justify-center gap-1">
+                Company <ExternalLink size={14} />
               </a>
             </div>
           </div>

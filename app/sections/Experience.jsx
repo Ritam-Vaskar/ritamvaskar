@@ -11,7 +11,7 @@ const Experience = () => {
       companyBanner: "https://cdn.prod.website-files.com/67aa2520eb413205a7dac909/67ae48e9f9239af1b55c496e_WhatsApp%20Image%202024-11-10%20at%2013.26.42_8e6d68b9.jpg",
       symbol: "🚀",
       location: "Bhubaneswar, India",
-      duration: "2024 - Present",
+      duration: "Feb 2024 - March 2026",
       companyUrl: "https://www.fedkiit.com/",
       positions: [
         { title: "Technichal Director", duration: "Aug 2025 - Present" },
@@ -93,9 +93,9 @@ const Experience = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-5">
-          {experiences.map((experience) => (
+          {experiences.map((experience, index) => (
             <div key={experience.company} className="h-full">
-              <ExperienceCard experience={experience} />
+              <ExperienceCard experience={experience} index={index} />
             </div>
           ))}
         </div>
