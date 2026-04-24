@@ -11,11 +11,11 @@ const Navbar = () => {
   const pathname = usePathname();
   const isHome = pathname === "/";
 
-  // Scroll links only work on home page
-  const homeScrollLinks = [
-    { label: "Home", to: "home" },
-    { label: "Education", to: "education" },
-    { label: "Experience", to: "experience" },
+  // Section links that scroll on home page, but redirect to home sections from other pages
+  const sectionLinks = [
+    { label: "Home", to: "home", href: "/" },
+    { label: "Education", to: "education", href: "/#education" },
+    { label: "Experience", to: "experience", href: "/#experience" },
   ];
 
   // Page links always work
@@ -30,15 +30,15 @@ const Navbar = () => {
     <div className="w-full h-[60px] fixed top-0 bg-slate-900 border-b border-slate-700 z-50 px-4 sm:px-6 md:px-10">
       <div className="w-full h-full flex items-center justify-between">
         <NextLink href="/" className="text-lg sm:text-xl font-bold text-white flex justify-center gap-2 items-center">
-          <img className="w-8 h-8 sm:w-10 sm:h-10 border border-slate-600" src="./favicon.ico" alt="" />
+          <img className="w-8 h-8 sm:w-10 sm:h-10 border border-slate-600" src="/favicon.ico" alt="" />
           <span className="hidden sm:inline">Ritam Vaskar</span>
           <span className="sm:hidden">RV</span>
         </NextLink>
 
         {/* Desktop nav */}
         <div className="hidden lg:flex items-center space-x-6 text-sm font-medium text-white">
-          {isHome ? (
-            homeScrollLinks.map((link) => (
+          {sectionLinks.map((link) =>
+            isHome ? (
               <ScrollLink
                 key={link.to}
                 to={link.to}
@@ -48,11 +48,15 @@ const Navbar = () => {
               >
                 {link.label}
               </ScrollLink>
-            ))
-          ) : (
-            <NextLink href="/" className="cursor-pointer hover:text-slate-300 transition-colors">
-              Home
-            </NextLink>
+            ) : (
+              <NextLink
+                key={link.to}
+                href={link.href}
+                className="cursor-pointer hover:text-slate-300 transition-colors"
+              >
+                {link.label}
+              </NextLink>
+            )
           )}
 
           {pageLinks.map((link) => (
@@ -97,8 +101,8 @@ const Navbar = () => {
       {/* Mobile menu */}
       {isMenuOpen && (
         <div className="lg:hidden absolute top-[60px] left-0 w-full bg-slate-900 text-white border-b border-slate-700 p-4 max-h-[calc(100vh-60px)] overflow-y-auto">
-          {isHome ? (
-            homeScrollLinks.map((link) => (
+          {sectionLinks.map((link) =>
+            isHome ? (
               <ScrollLink
                 key={link.to}
                 to={link.to}
@@ -109,15 +113,16 @@ const Navbar = () => {
               >
                 {link.label}
               </ScrollLink>
-            ))
-          ) : (
-            <NextLink
-              href="/"
-              onClick={toggleMenu}
-              className="block text-sm font-medium py-3 px-4 text-center border border-slate-700 hover:bg-slate-800 transition-colors mb-2"
-            >
-              Home
-            </NextLink>
+            ) : (
+              <NextLink
+                key={link.to}
+                href={link.href}
+                onClick={toggleMenu}
+                className="block text-sm font-medium py-3 px-4 text-center border border-slate-700 hover:bg-slate-800 transition-colors mb-2"
+              >
+                {link.label}
+              </NextLink>
+            )
           )}
 
           {pageLinks.map((link) => (
