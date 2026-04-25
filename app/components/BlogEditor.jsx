@@ -449,12 +449,34 @@ function inlineFormat(text) {
   while (rem.length > 0) {
     const cm = rem.match(/^(.*?)`([^`]+)`(.*)/s);
     const bm = rem.match(/^(.*?)\*\*([^*]+)\*\*(.*)/s);
+    const im = rem.match(/^(.*?)_([^_]+)_(.*)/s);
+    const lm = rem.match(/^(.*?)\[([^\]]+)\]\(([^)]+)\)(.*)/s);
+    
     let best = null, pos = Infinity;
     if (cm && cm[1].length < pos) { best = "c"; pos = cm[1].length; }
     if (bm && bm[1].length < pos) { best = "b"; pos = bm[1].length; }
+    if (im && im[1].length < pos) { best = "i"; pos = im[1].length; }
+    if (lm && lm[1].length < pos) { best = "l"; pos = lm[1].length; }
+    
     if (!best) { parts.push(rem); break; }
-    if (best === "c") { if (cm[1]) parts.push(cm[1]); parts.push(<code key={k++} className="px-1 py-0.5 bg-slate-800 border border-slate-700 text-slate-300 text-xs font-mono">{cm[2]}</code>); rem = cm[3]; }
-    else { if (bm[1]) parts.push(bm[1]); parts.push(<strong key={k++} className="text-white font-semibold">{bm[2]}</strong>); rem = bm[3]; }
+    
+    if (best === "c") { 
+      if (cm[1]) parts.push(cm[1]); 
+      parts.push(<code key={k++} className="px-1 py-0.5 bg-slate-800 border border-slate-700 text-slate-300 text-xs font-mono">{cm[2]}</code>); 
+      rem = cm[3]; 
+    } else if (best === "b") { 
+      if (bm[1]) parts.push(bm[1]); 
+      parts.push(<strong key={k++} className="text-white font-semibold">{bm[2]}</strong>); 
+      rem = bm[3]; 
+    } else if (best === "i") {
+      if (im[1]) parts.push(im[1]);
+      parts.push(<em key={k++} className="text-gray-300 italic">{im[2]}</em>);
+      rem = im[3];
+    } else if (best === "l") {
+      if (lm[1]) parts.push(lm[1]);
+      parts.push(<a key={k++} href={lm[3]} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">{lm[2]}</a>);
+      rem = lm[4];
+    }
   }
   return parts.length === 1 ? parts[0] : parts;
 }
