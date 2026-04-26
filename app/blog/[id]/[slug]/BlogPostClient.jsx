@@ -2,7 +2,7 @@
 
 import React, { use, useState, useEffect } from "react";
 import Link from "next/link";
-import { ArrowLeft, Calendar, Clock, User } from "lucide-react";
+import { ArrowLeft, Calendar, Clock, User, Share2 } from "lucide-react";
 import BlurImage from "../../../components/BlurImage";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -73,11 +73,32 @@ export default function BlogPostClient({ params }) {
             {post.title}
           </h1>
 
-          {/* Meta */}
-          <div className="flex flex-wrap items-center gap-3 sm:gap-5 text-gray-400 text-xs sm:text-sm mb-6 sm:mb-8 pb-6 sm:pb-8 border-b border-slate-700">
-            <span className="flex items-center gap-1.5"><User size={14} />{post.author || "Ritam Vaskar"}</span>
-            <span className="flex items-center gap-1.5"><Calendar size={14} />{new Date(post.createdAt).toLocaleDateString()}</span>
-            <span className="flex items-center gap-1.5"><Clock size={14} />{post.readTime} min read</span>
+          {/* Meta & Actions */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 sm:mb-8 pb-6 sm:pb-8 border-b border-slate-700">
+            <div className="flex flex-wrap items-center gap-3 sm:gap-5 text-gray-400 text-xs sm:text-sm">
+              <span className="flex items-center gap-1.5"><User size={14} />{post.author || "Ritam Vaskar"}</span>
+              <span className="flex items-center gap-1.5"><Calendar size={14} />{new Date(post.createdAt).toLocaleDateString()}</span>
+              <span className="flex items-center gap-1.5"><Clock size={14} />{post.readTime} min read</span>
+            </div>
+            
+            <button
+              onClick={() => {
+                if (navigator.share) {
+                  navigator.share({
+                    title: post.title,
+                    text: `Check out this post: ${post.title}`,
+                    url: window.location.href,
+                  }).catch((error) => console.log('Error sharing', error));
+                } else {
+                  navigator.clipboard.writeText(window.location.href);
+                  alert("Link copied to clipboard!");
+                }
+              }}
+              className="flex items-center gap-2 px-3 py-1.5 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 hover:text-white text-xs sm:text-sm transition-colors rounded-sm w-fit"
+            >
+              <Share2 size={14} />
+              Share
+            </button>
           </div>
 
           {/* Cover image */}
