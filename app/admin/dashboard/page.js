@@ -14,6 +14,7 @@ export default function AdminDashboard() {
   const [subscribers, setSubscribers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [deleting, setDeleting] = useState(null);
+  const [deletingSubscriber, setDeletingSubscriber] = useState(null);
   const [notifying, setNotifying] = useState(null);
   const router = useRouter();
 
@@ -75,6 +76,14 @@ export default function AdminDashboard() {
     await fetch(`/api/experience/${id}`, { method: "DELETE" });
     setExperiences(experiences.filter((e) => e._id !== id));
     setDeleting(null);
+  };
+
+  const handleDeleteSubscriber = async (subscriber) => {
+    if (!confirm(`Delete subscriber ${subscriber.email}? This cannot be undone.`)) return;
+    setDeletingSubscriber(subscriber._id);
+    await fetch(`/api/subscribe/${subscriber._id}`, { method: "DELETE" });
+    setSubscribers(subscribers.filter((s) => s._id !== subscriber._id));
+    setDeletingSubscriber(null);
   };
 
   const togglePublish = async (blog) => {
@@ -334,9 +343,23 @@ export default function AdminDashboard() {
                       <p className="text-white text-sm font-medium">{sub.email}</p>
                       <p className="text-gray-500 text-xs">Joined: {new Date(sub.createdAt).toLocaleDateString()}</p>
                     </div>
-                    <span className={`px-2 py-1 text-xs border ${sub.verified ? "border-green-700 text-green-400 bg-green-950/30" : "border-yellow-700 text-yellow-400 bg-yellow-950/30"}`}>
-                      {sub.verified ? "Verified" : "Pending"}
-                    </span>
+                    <div className="flex items-center gap-2">
+                      <span className={`px-2 py-1 text-xs border ${sub.verified ? "border-green-700 text-green-400 bg-green-950/30" : "border-yellow-700 text-yellow-400 bg-yellow-950/30"}`}>
+                        {sub.verified ? "Verified" : "Pending"}
+                      </span>
+                      <button
+                        onClick={() => handleDeleteSubscriber(sub)}
+                        disabled={deletingSubscriber === sub._id}
+                        className="p-2 border border-slate-700 text-gray-400 hover:text-red-400 hover:border-red-700 transition-colors disabled:opacity-50"
+                        title="Delete subscriber"
+                      >
+                        {deletingSubscriber === sub._id ? (
+                          <div className="w-3.5 h-3.5 border border-slate-600 border-t-slate-300 animate-spin" />
+                        ) : (
+                          <Trash2 size={14} />
+                        )}
+                      </button>
+                    </div>
                   </div>
                 ))}
               </div>
