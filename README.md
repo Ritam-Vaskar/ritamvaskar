@@ -1,36 +1,74 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Ritam Vaskar — Portfolio
 
-## Getting Started
+Welcome to my personal portfolio website: https://ritamvaskar.tech
 
-First, run the development server:
+This site showcases my projects, technical skills, and work in system design, full-stack development, and scalable applications.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+🧑‍💻 About Me
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+I’m Ritam Vaskar, a developer focused on building performant, scalable, and real-world systems.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+I enjoy working across the stack and diving deep into how systems actually work under the hood — from frontend UX to backend architecture and infrastructure.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+⚡ Tech Stack
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Frontend: React, Vite, Tailwind CSS
+- Backend: Node.js, Express
+- Realtime: Socket.IO, WebRTC basics
+- Streaming & Media: FFmpeg, HLS
+- DevOps & Infra: Docker, cloud deployments
+- Other: System Design, Performance Optimization
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+🧠 Featured Projects
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+📡 Live Streaming Platform
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- End-to-end browser-based streaming system
+- Adaptive streaming using HLS
+- Real-time audience analytics
+- Dockerized deployment with FFmpeg pipeline
+
+☁️ Vercel Clone (System Design Project)
+
+- Built a simplified deployment platform
+- Explored internal architecture of modern hosting
+- Covers build pipelines, routing, and scaling concepts
+
+👉 More projects available on the portfolio
+
+---
+
+🎯 What I Focus On
+
+- Building real-world scalable systems
+- Writing clean and maintainable code
+- Understanding internal architecture deeply
+- Solving performance and reliability challenges
+
+---
+
+📸 Features of This Portfolio
+
+- Minimal and clean UI
+- Project-focused layout
+- Technical deep dives
+- Responsive design
+
+---
+
+📬 Contact
+
+- Portfolio: https://ritamvaskar.tech
+- GitHub: https://github.com/Ritam-Vaskar
+
+---
+
+⭐ Feedback
+
+If you checked out my portfolio, I’d love to hear your thoughts. Open to suggestions and improvements.
