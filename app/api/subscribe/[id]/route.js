@@ -28,3 +28,25 @@ export async function DELETE(request, { params }) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
+
+export async function PUT(request, { params }) {
+  try {
+    const admin = verifyAdmin(request);
+    if (!admin) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+
+    await connectDB();
+    const { id } = await params;
+    const data = await request.json();
+
+    const updated = await Subscriber.findByIdAndUpdate(
+      id,
+      { $set: { verified: Boolean(data.verified) } },
+      { new: true }
+    ).lean();
+
+    if (!updated) return NextResponse.json({ error: "Not found" }, { status: 404 });
+    return NextResponse.json({ ...updated, _id: updated._id.toString() });
+  } catch (error) {
+    return NextResponse.json({ error: error.message }, { status: 500 });
+  }
+}

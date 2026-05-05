@@ -15,6 +15,8 @@ export default function AdminDashboard() {
   const [loading, setLoading] = useState(true);
   const [deleting, setDeleting] = useState(null);
   const [deletingSubscriber, setDeletingSubscriber] = useState(null);
+  const [verifyingSubscriber, setVerifyingSubscriber] = useState(null);
+  const [selectedSubscribers, setSelectedSubscribers] = useState([]);
   const [notifying, setNotifying] = useState(null);
   const router = useRouter();
 
@@ -84,6 +86,50 @@ export default function AdminDashboard() {
     await fetch(`/api/subscribe/${subscriber._id}`, { method: "DELETE" });
     setSubscribers(subscribers.filter((s) => s._id !== subscriber._id));
     setDeletingSubscriber(null);
+  };
+
+  const handleDeleteSelectedSubscribers = async () => {
+    if (selectedSubscribers.length === 0) return;
+    if (!confirm(`Delete ${selectedSubscribers.length} selected subscriber(s)? This cannot be undone.`)) return;
+
+    setDeletingSubscriber("bulk");
+    await Promise.all(
+      selectedSubscribers.map((id) => fetch(`/api/subscribe/${id}`, { method: "DELETE" }))
+    );
+    setSubscribers(subscribers.filter((s) => !selectedSubscribers.includes(s._id)));
+    setSelectedSubscribers([]);
+    setDeletingSubscriber(null);
+  };
+
+  const toggleSubscriberSelection = (id) => {
+    setSelectedSubscribers((prev) =>
+      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
+    );
+  };
+
+  const toggleSelectAllSubscribers = () => {
+    if (selectedSubscribers.length === subscribers.length) {
+      setSelectedSubscribers([]);
+    } else {
+      setSelectedSubscribers(subscribers.map((s) => s._id));
+    }
+  };
+
+  const handleVerifySubscriber = async (subscriber) => {
+    if (subscriber.verified) return;
+    if (!confirm(`Mark ${subscriber.email} as verified?`)) return;
+
+    setVerifyingSubscriber(subscriber._id);
+    const res = await fetch(`/api/subscribe/${subscriber._id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ verified: true }),
+    });
+    const updated = await res.json();
+    if (res.ok) {
+      setSubscribers(subscribers.map((s) => (s._id === subscriber._id ? updated : s)));
+    }
+    setVerifyingSubscriber(null);
   };
 
   const togglePublish = async (blog) => {
@@ -337,6 +383,30 @@ export default function AdminDashboard() {
               </div>
             ) : (
               <div className="space-y-2">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 border border-slate-700 bg-slate-900">
+                  <div className="flex items-center gap-3 text-sm text-gray-400">
+                    <input
+                      type="checkbox"
+                      checked={selectedSubscribers.length === subscribers.length && subscribers.length > 0}
+                      onChange={toggleSelectAllSubscribers}
+                      className="accent-slate-400"
+                      aria-label="Select all subscribers"
+                    />
+                    <span>Selected: {selectedSubscribers.length}</span>
+                  </div>
+                  <button
+                    onClick={handleDeleteSelectedSubscribers}
+                    disabled={selectedSubscribers.length === 0 || deletingSubscriber === "bulk"}
+                    className="flex items-center gap-2 px-3 py-2 border border-slate-700 text-gray-400 text-sm hover:text-red-400 hover:border-red-700 transition-colors disabled:opacity-50"
+                  >
+                    {deletingSubscriber === "bulk" ? (
+                      <div className="w-3.5 h-3.5 border border-slate-600 border-t-slate-300 animate-spin" />
+                    ) : (
+                      <Trash2 size={14} />
+                    )}
+                    Delete Selected
+                  </button>
+                </div>
                 {subscribers.map((sub) => (
                   <div key={sub._id} className="flex items-center justify-between p-4 border border-slate-700 bg-slate-900">
                     <div>
@@ -344,9 +414,30 @@ export default function AdminDashboard() {
                       <p className="text-gray-500 text-xs">Joined: {new Date(sub.createdAt).toLocaleDateString()}</p>
                     </div>
                     <div className="flex items-center gap-2">
+                      <input
+                        type="checkbox"
+                        checked={selectedSubscribers.includes(sub._id)}
+                        onChange={() => toggleSubscriberSelection(sub._id)}
+                        className="accent-slate-400"
+                        aria-label={`Select ${sub.email}`}
+                      />
                       <span className={`px-2 py-1 text-xs border ${sub.verified ? "border-green-700 text-green-400 bg-green-950/30" : "border-yellow-700 text-yellow-400 bg-yellow-950/30"}`}>
                         {sub.verified ? "Verified" : "Pending"}
                       </span>
+                      {!sub.verified && (
+                        <button
+                          onClick={() => handleVerifySubscriber(sub)}
+                          disabled={verifyingSubscriber === sub._id}
+                          className="p-2 border border-slate-700 text-emerald-400 hover:text-emerald-300 hover:border-emerald-600 transition-colors disabled:opacity-50"
+                          title="Mark as verified"
+                        >
+                          {verifyingSubscriber === sub._id ? (
+                            <div className="w-3.5 h-3.5 border border-slate-600 border-t-slate-300 animate-spin" />
+                          ) : (
+                            <Eye size={14} />
+                          )}
+                        </button>
+                      )}
                       <button
                         onClick={() => handleDeleteSubscriber(sub)}
                         disabled={deletingSubscriber === sub._id}
