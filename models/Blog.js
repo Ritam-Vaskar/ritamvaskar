@@ -24,8 +24,8 @@ BlogSchema.pre("validate", function () {
       .replace(/(^-|-$)/g, "");
   }
   // Calculate read time from content (~200 words per minute)
-  if (this.content && !this.readTime) {
-    const wordCount = this.content.split(/\s+/).length;
+  if (this.content) {
+    const wordCount = this.content.split(/\s+/).filter(Boolean).length;
     this.readTime = Math.max(1, Math.ceil(wordCount / 200));
   }
 });

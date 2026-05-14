@@ -13,6 +13,12 @@ function verifyAdmin(request) {
   }
 }
 
+function calculateReadTime(content) {
+  if (!content) return 1;
+  const wordCount = content.split(/\s+/).filter(Boolean).length;
+  return Math.max(1, Math.ceil(wordCount / 200));
+}
+
 // GET single blog by ID
 export async function GET(request, { params }) {
   try {
@@ -20,7 +26,11 @@ export async function GET(request, { params }) {
     const { id } = await params;
     const blog = await Blog.findById(id).lean();
     if (!blog) return NextResponse.json({ error: "Not found" }, { status: 404 });
-    return NextResponse.json({ ...blog, _id: blog._id.toString() });
+    return NextResponse.json({
+      ...blog,
+      _id: blog._id.toString(),
+      readTime: calculateReadTime(blog.content),
+    });
   } catch (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
@@ -38,7 +48,7 @@ export async function PUT(request, { params }) {
 
     // Recalculate read time
     if (data.content) {
-      data.readTime = Math.max(1, Math.ceil(data.content.split(/\s+/).length / 200));
+      data.readTime = calculateReadTime(data.content);
     }
     // Regenerate slug if title changed
     if (data.title) {

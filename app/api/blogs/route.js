@@ -13,6 +13,12 @@ function verifyAdmin(request) {
   }
 }
 
+function calculateReadTime(content) {
+  if (!content) return 1;
+  const wordCount = content.split(/\s+/).filter(Boolean).length;
+  return Math.max(1, Math.ceil(wordCount / 200));
+}
+
 // GET all blogs (public: only published, admin: all)
 export async function GET(request) {
   try {
@@ -20,7 +26,11 @@ export async function GET(request) {
     const admin = verifyAdmin(request);
     const filter = admin ? {} : { published: true };
     const blogs = await Blog.find(filter).sort({ createdAt: -1 }).lean();
-    const serialized = blogs.map((b) => ({ ...b, _id: b._id.toString() }));
+    const serialized = blogs.map((b) => ({
+      ...b,
+      _id: b._id.toString(),
+      readTime: calculateReadTime(b.content),
+    }));
     return NextResponse.json(serialized);
   } catch (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });
@@ -40,6 +50,8 @@ export async function POST(request) {
     if (!data.slug && data.title) {
       data.slug = data.title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
     }
+
+    data.readTime = calculateReadTime(data.content);
 
     const blog = await Blog.create(data);
     return NextResponse.json({ ...blog.toObject(), _id: blog._id.toString() }, { status: 201 });
