@@ -13,7 +13,7 @@ const Contact = () => {
 
       <div className="flex flex-col md:flex-row gap-12 max-w-6xl w-full mx-auto items-center">
         <div className="relative flex flex-col items-center gap-6 p-6 border border-slate-700 w-full h-[435px] md:w-1/2 bg-slate-900">
-          <img src="/assets/ritam.jpeg" alt="Your Name" className="w-32 h-32 object-cover border-2 border-slate-500" />
+          <img src="/WhatsApp Image 2026-05-14 at 4.08.56 PM.jpeg" alt="Your Name" className="w-32 h-32 object-cover border-2 border-slate-500" />
           <h3 className="text-2xl font-bold text-white">Ritam Vaskar</h3>
           <p className="text-gray-400 text-sm text-center">Web Developer | Tech Enthusiast | Creator</p>
           <div className="flex flex-col gap-2 text-gray-300">

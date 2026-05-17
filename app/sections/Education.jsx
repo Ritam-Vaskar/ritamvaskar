@@ -10,7 +10,7 @@ const Education = () => {
       degree: "B. Tech in Computer Science & Engineering",
       duration: "2023 - 2027",
       location: "Bhubaneswar, India",
-      grade: "8.1 GPA",
+      grade: "8.3 GPA",
       gradePercentage: 85,
       description: "4 years Undergraduate Course. Bachelor of Technology in Computer Science & Engineering.",
     },
