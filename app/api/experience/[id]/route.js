@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import connectDB from "../../../../utils/mongodb";
 import Experience from "../../../../models/Experience";
 import jwt from "jsonwebtoken";
@@ -22,6 +23,10 @@ export async function PUT(request, { params }) {
     const { id } = await params;
     const data = await request.json();
     const updated = await Experience.findByIdAndUpdate(id, data, { new: true });
+    
+    // Revalidate home page so updated experience shows immediately
+    revalidatePath("/");
+    
     return NextResponse.json(updated);
   } catch (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });
@@ -36,6 +41,10 @@ export async function DELETE(request, { params }) {
     await connectDB();
     const { id } = await params;
     await Experience.findByIdAndDelete(id);
+    
+    // Revalidate home page so deleted experience is removed immediately
+    revalidatePath("/");
+    
     return NextResponse.json({ message: "Deleted successfully" });
   } catch (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });

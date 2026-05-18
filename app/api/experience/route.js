@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import connectDB from "../../../utils/mongodb";
 import Experience from "../../../models/Experience";
 import jwt from "jsonwebtoken";
@@ -31,6 +32,10 @@ export async function POST(request) {
     await connectDB();
     const data = await request.json();
     const newExperience = await Experience.create(data);
+    
+    // Revalidate home page so the experience section shows fresh data
+    revalidatePath("/");
+    
     return NextResponse.json(newExperience);
   } catch (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });

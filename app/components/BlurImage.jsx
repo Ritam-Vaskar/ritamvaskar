@@ -36,8 +36,8 @@ const BlurImage = ({ src, alt, className = "", containerClassName = "" }) => {
         <div className="absolute inset-0 bg-gradient-to-br from-slate-700/50 to-slate-800/50 animate-pulse" />
       </div>
 
-      {/* Actual image - only loads when in viewport */}
-      {isInView && (
+      {/* Actual image - only loads when in viewport and src is valid */}
+      {isInView && src && (
         <img
           src={src}
           alt={alt}

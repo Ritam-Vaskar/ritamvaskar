@@ -5,6 +5,7 @@ import ProjectsPreview from "./sections/ProjectsPreview";
 import Contact from "./sections/Contact";
 import Experience from "./sections/Experience";
 
+export const dynamic = "force-dynamic";
 
 export default function Home() {
   return (
