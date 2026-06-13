@@ -7,7 +7,7 @@ import { SparklesIcon } from "@heroicons/react/24/solid";
 
 const AboutMe = () => {
   const [showCvPopup, setShowCvPopup] = useState(false);
-  const cvPreviewLink = "https://drive.google.com/file/d/1PXvCZZQ2G8PNmkFMDavzfQwn3WMLOC5q/preview";
+  const cvPreviewLink = "https://drive.google.com/file/d/1DSPH4kq--iCJUa3K8v_Rd4Y4TIHD1xiB/preview";
 
   return (
     <div id="about" className="relative min-h-screen w-full pt-24 pb-8">

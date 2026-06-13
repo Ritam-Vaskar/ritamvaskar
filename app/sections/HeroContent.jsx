@@ -28,7 +28,7 @@ const HeroContent = () => {
 
           <a
             className="py-2 px-4 button-primary text-center text-white cursor-pointer max-w-[200px] mx-auto lg:mx-0"
-            href="https://drive.google.com/file/d/1PXvCZZQ2G8PNmkFMDavzfQwn3WMLOC5q/view?usp=sharing"
+            href="https://drive.google.com/file/d/1DSPH4kq--iCJUa3K8v_Rd4Y4TIHD1xiB/view?usp=drive_link"
             target="_blank"
             rel="noopener noreferrer"
           >
