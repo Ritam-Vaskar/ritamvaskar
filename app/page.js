@@ -2,6 +2,7 @@ import AboutMe from "./sections/About";
 import Education from "./sections/Education";
 import SkillsPreview from "./sections/SkillsPreview";
 import ProjectsPreview from "./sections/ProjectsPreview";
+import CertificationsPreview from "./sections/CertificationsPreview";
 import Contact from "./sections/Contact";
 import Experience from "./sections/Experience";
 
@@ -16,6 +17,7 @@ export default function Home() {
         <section id="education"><Education /></section>
         <section id="skills"><SkillsPreview /></section>
         <section id="project"><ProjectsPreview /></section>
+        <section id="certifications"><CertificationsPreview /></section>
         <section id="contact"><Contact /></section>
       </div>
     </main>
