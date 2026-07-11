@@ -5,6 +5,13 @@ import BlurImage from "./BlurImage";
 
 const ExperienceCard = ({ experience, index }) => {
   const [showModal, setShowModal] = useState(false);
+  const testimonial = experience.testimonial;
+  const hasTestimonial = Boolean(
+    testimonial &&
+      [testimonial.text, testimonial.name, testimonial.role, testimonial.avatar].some(
+        (value) => typeof value === "string" && value.trim().length > 0
+      )
+  );
 
   return (
     <>
@@ -125,20 +132,20 @@ const ExperienceCard = ({ experience, index }) => {
                 </ul>
               </div>
 
-              {experience.testimonial && (
+              {hasTestimonial && (
                 <div className="mt-8 p-4 sm:p-6 bg-slate-800 border border-slate-700">
                   <div className="flex gap-3 sm:gap-4 items-start">
                     <BlurImage
-                      src={experience.testimonial.avatar}
-                      alt={experience.testimonial.name}
+                      src={testimonial.avatar}
+                      alt={testimonial.name || "Testimonial avatar"}
                       className="w-10 h-10 sm:w-12 sm:h-12 object-cover"
                       containerClassName="w-10 h-10 sm:w-12 sm:h-12 border border-slate-700 shrink-0"
                     />
                     <div>
-                      <p className="text-gray-300 italic mb-3 sm:mb-4 text-sm sm:text-base">"{experience.testimonial.text}"</p>
+                      {testimonial.text && <p className="text-gray-300 italic mb-3 sm:mb-4 text-sm sm:text-base">"{testimonial.text}"</p>}
                       <div>
-                        <p className="text-white font-medium text-sm sm:text-base">{experience.testimonial.name}</p>
-                        <p className="text-gray-400 text-xs sm:text-sm">{experience.testimonial.role}</p>
+                        {testimonial.name && <p className="text-white font-medium text-sm sm:text-base">{testimonial.name}</p>}
+                        {testimonial.role && <p className="text-gray-400 text-xs sm:text-sm">{testimonial.role}</p>}
                       </div>
                     </div>
                   </div>
